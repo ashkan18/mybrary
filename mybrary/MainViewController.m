@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "MBApiClient.h"
+#import <MapKit/MKAnnotation.h>
 
 
 @interface MainViewController()
@@ -33,6 +34,7 @@
     [self.locationManager startMonitoringSignificantLocationChanges];
     CLLocation *location = self.locationManager.location;
     if (location) {
+        [self mapSetRegion:location];
         [self getBooksWithLocation:location];
     }
     
@@ -58,9 +60,16 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *crnLoc = [locations lastObject];
-    
+    [self mapSetRegion:crnLoc];
     [self getBooksWithLocation:crnLoc];
+   
     
+}
+
+- (void)mapSetRegion:(CLLocation *)center
+{
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
+    [self.mapView setRegion:MKCoordinateRegionMake(center.coordinate, span)];
 }
 
 - (void)getBooksWithLocation:(CLLocation *)location
@@ -72,6 +81,12 @@
                                                  NSLog(@"error baba");
                                                  
                                              }];
+}
+
+
+- (void)updateShowAnnotations:(id) response
+{
+    
 }
 
 @end
