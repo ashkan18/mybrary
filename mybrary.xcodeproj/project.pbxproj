@@ -11,6 +11,7 @@
 		41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F2B1B8BA469005BAC68 /* MBApiClient.m */; };
 		41230F2E1B8BA63F005BAC68 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41230F2D1B8BA63F005BAC68 /* MapKit.framework */; };
 		41230F301B8BAB5B005BAC68 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41230F2F1B8BAB5B005BAC68 /* CoreLocation.framework */; };
+		41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F331B8BE656005BAC68 /* MBMapAnnotation.m */; };
 		41355EAE1B8BA0A60086BFD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EAD1B8BA0A60086BFD6 /* main.m */; };
 		41355EB11B8BA0A60086BFD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EB01B8BA0A60086BFD6 /* AppDelegate.m */; };
 		41355EB41B8BA0A60086BFD6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EB31B8BA0A60086BFD6 /* MainViewController.m */; };
@@ -35,6 +36,8 @@
 		41230F2B1B8BA469005BAC68 /* MBApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApiClient.m; sourceTree = "<group>"; };
 		41230F2D1B8BA63F005BAC68 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		41230F2F1B8BAB5B005BAC68 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		41230F321B8BE656005BAC68 /* MBMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapAnnotation.h; sourceTree = "<group>"; };
+		41230F331B8BE656005BAC68 /* MBMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMapAnnotation.m; sourceTree = "<group>"; };
 		41355EA81B8BA0A60086BFD6 /* mybrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41355EAC1B8BA0A60086BFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41355EAD1B8BA0A60086BFD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +96,15 @@
 			name = api;
 			sourceTree = "<group>";
 		};
+		41230F311B8BE623005BAC68 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				41230F321B8BE656005BAC68 /* MBMapAnnotation.h */,
+				41230F331B8BE656005BAC68 /* MBMapAnnotation.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		41355E9F1B8BA0A60086BFD6 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +128,7 @@
 		41355EAA1B8BA0A60086BFD6 /* mybrary */ = {
 			isa = PBXGroup;
 			children = (
+				41230F311B8BE623005BAC68 /* views */,
 				41230F291B8BA43B005BAC68 /* api */,
 				41355EAF1B8BA0A60086BFD6 /* AppDelegate.h */,
 				41355EB01B8BA0A60086BFD6 /* AppDelegate.m */,
@@ -305,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */,
+				41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */,
 				41355EB41B8BA0A60086BFD6 /* MainViewController.m in Sources */,
 				41355EB11B8BA0A60086BFD6 /* AppDelegate.m in Sources */,
 				41355EAE1B8BA0A60086BFD6 /* main.m in Sources */,

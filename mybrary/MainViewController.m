@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MBApiClient.h"
 #import <MapKit/MKAnnotation.h>
+#import "MBMapAnnotation.h"
 
 
 @interface MainViewController()
@@ -77,6 +78,7 @@
     [[MBApiClient sharedClient]getBookInstancesByLocation:location
                                              successBlock:^(id responseObject) {
                                                  NSLog(@"received response %@", responseObject);
+                                                 [self updateShowAnnotations:responseObject];
                                              } errorBlock:^(NSError *error) {
                                                  NSLog(@"error baba");
                                                  
@@ -86,7 +88,14 @@
 
 - (void)updateShowAnnotations:(id) response
 {
-    
+    for (NSDictionary *dict in response) {
+        MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];
+        ann.title = dict[@"book"][@"isbn"];
+        ann.subtitle = dict[@"user"][@"name"];
+        CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[[dict[@"location"] objectAtIndex:0] doubleValue], [[dict[@"location"] objectAtIndex:1] doubleValue]};
+        ann.coordinate = coord;
+        [self.mapView addAnnotation:ann];
+    }
 }
 
 @end
