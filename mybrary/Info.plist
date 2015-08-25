@@ -65,5 +65,9 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Send location to Uook server</string>
+	<key>privacy - location usage description</key>
+	<string>need location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>need location</string>
 </dict>
 </plist>

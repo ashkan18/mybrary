@@ -14,7 +14,7 @@
 
 @interface MainViewController()
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic , strong) CLLocationManager *locationManager;
 
 @end
 
@@ -24,19 +24,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view, typically from a nib.
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+    [self setupLocationManager];
+}
+
+- (void)setupLocationManager {
     
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    [self.locationManager startMonitoringSignificantLocationChanges];
-    CLLocation *location = self.locationManager.location;
-    if (location) {
-        [self mapSetRegion:location];
-        [self getBooksWithLocation:location];
+    if (!self.locationManager){
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        self.locationManager.distanceFilter = kCLDistanceFilterNone;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        
+         // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+             [self.locationManager requestAlwaysAuthorization];
+         }
+        [self.locationManager startMonitoringSignificantLocationChanges];
+    
     }
     
 }
@@ -58,12 +62,12 @@
     [errorAlert show];
     NSLog(@"Error: %@",error.description);
 }
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *crnLoc = [locations lastObject];
     [self mapSetRegion:crnLoc];
     [self getBooksWithLocation:crnLoc];
-   
     
 }
 
