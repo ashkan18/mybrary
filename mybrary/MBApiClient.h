@@ -26,5 +26,11 @@
               successBlock:(void(^)(id responseObject))successBlock
                 errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)createBookInstanceWithIsbn:(NSString *)isbn
+                          location:(CLLocation *)location
+                      successBlock:(void(^)(id responseObject))successBlock
+                        errorBlock:(void(^)(NSError *error))errorBlock;
+
+
 
 @end

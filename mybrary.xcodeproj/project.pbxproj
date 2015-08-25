@@ -14,6 +14,8 @@
 		41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F331B8BE656005BAC68 /* MBMapAnnotation.m */; };
 		41230F371B8CE5B1005BAC68 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F361B8CE5B1005BAC68 /* PostViewController.m */; };
 		41230F3B1B8D00FF005BAC68 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F3A1B8D00FF005BAC68 /* NewBookViewController.m */; };
+		41230F3F1B8D10E5005BAC68 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F3E1B8D10E5005BAC68 /* LocationManager.m */; };
+		41230F421B8D1372005BAC68 /* NewBookInstanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F411B8D1372005BAC68 /* NewBookInstanceViewController.m */; };
 		41355EAE1B8BA0A60086BFD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EAD1B8BA0A60086BFD6 /* main.m */; };
 		41355EB11B8BA0A60086BFD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EB01B8BA0A60086BFD6 /* AppDelegate.m */; };
 		41355EB41B8BA0A60086BFD6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EB31B8BA0A60086BFD6 /* MainViewController.m */; };
@@ -44,6 +46,10 @@
 		41230F361B8CE5B1005BAC68 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		41230F391B8D00FF005BAC68 /* NewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBookViewController.h; sourceTree = "<group>"; };
 		41230F3A1B8D00FF005BAC68 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBookViewController.m; sourceTree = "<group>"; };
+		41230F3D1B8D10E5005BAC68 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		41230F3E1B8D10E5005BAC68 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		41230F401B8D1372005BAC68 /* NewBookInstanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBookInstanceViewController.h; sourceTree = "<group>"; };
+		41230F411B8D1372005BAC68 /* NewBookInstanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBookInstanceViewController.m; sourceTree = "<group>"; };
 		41355EA81B8BA0A60086BFD6 /* mybrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41355EAC1B8BA0A60086BFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41355EAD1B8BA0A60086BFD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,8 +122,19 @@
 			children = (
 				41230F391B8D00FF005BAC68 /* NewBookViewController.h */,
 				41230F3A1B8D00FF005BAC68 /* NewBookViewController.m */,
+				41230F401B8D1372005BAC68 /* NewBookInstanceViewController.h */,
+				41230F411B8D1372005BAC68 /* NewBookInstanceViewController.m */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		41230F3C1B8D10D0005BAC68 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				41230F3D1B8D10E5005BAC68 /* LocationManager.h */,
+				41230F3E1B8D10E5005BAC68 /* LocationManager.m */,
+			);
+			name = managers;
 			sourceTree = "<group>";
 		};
 		41355E9F1B8BA0A60086BFD6 = {
@@ -143,6 +160,7 @@
 		41355EAA1B8BA0A60086BFD6 /* mybrary */ = {
 			isa = PBXGroup;
 			children = (
+				41230F3C1B8D10D0005BAC68 /* managers */,
 				41230F381B8D00CF005BAC68 /* controllers */,
 				41230F311B8BE623005BAC68 /* views */,
 				41230F291B8BA43B005BAC68 /* api */,
@@ -335,12 +353,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41230F3F1B8D10E5005BAC68 /* LocationManager.m in Sources */,
 				41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */,
 				41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */,
 				41230F371B8CE5B1005BAC68 /* PostViewController.m in Sources */,
 				41355EB41B8BA0A60086BFD6 /* MainViewController.m in Sources */,
 				41355EB11B8BA0A60086BFD6 /* AppDelegate.m in Sources */,
 				41230F3B1B8D00FF005BAC68 /* NewBookViewController.m in Sources */,
+				41230F421B8D1372005BAC68 /* NewBookInstanceViewController.m in Sources */,
 				41355EAE1B8BA0A60086BFD6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

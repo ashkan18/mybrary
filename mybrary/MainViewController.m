@@ -11,11 +11,11 @@
 #import <MapKit/MKAnnotation.h>
 #import "MBMapAnnotation.h"
 #import "PostViewController.h"
+#import "LocationManager.h"
 
 
 @interface MainViewController()
 
-@property (nonatomic , strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
 
 @end
@@ -31,19 +31,7 @@
 
 - (void)setupLocationManager {
     
-    if (!self.locationManager){
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        self.locationManager.distanceFilter = kCLDistanceFilterNone;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-        
-         // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-             [self.locationManager requestAlwaysAuthorization];
-         }
-        [self.locationManager startMonitoringSignificantLocationChanges];
-    }
-    
+    [LocationManager sharedClient].delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -95,8 +83,8 @@
 {
     for (NSDictionary *dict in response) {
         MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];
-        ann.title = dict[@"book"][@"isbn"];
-        ann.subtitle = dict[@"user"][@"name"];
+        ann.title = dict[@"book"][@"name"];
+        ann.subtitle = dict[@"book"][@"isbn"];
         CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[[dict[@"location"] objectAtIndex:0] doubleValue], [[dict[@"location"] objectAtIndex:1] doubleValue]};
         ann.coordinate = coord;
         [self.mapView addAnnotation:ann];

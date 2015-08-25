@@ -10,6 +10,7 @@
 #import "MTBBarcodeScanner.h"
 #import "MBApiClient.h"
 #import "NewBookViewController.h"
+#import "NewBookInstanceViewController.h"
 
 @interface PostViewController ()
 @property (weak, nonatomic) IBOutlet UIView *scannerView;
@@ -53,7 +54,7 @@
 
 - (void)handleKnownBarcode:(NSString *)barcode
 {
-    
+    [self performSegueWithIdentifier:@"NewBookInstance" sender:barcode];
 }
 
 - (void)handleUnKnownBarcode:(NSString *)barcode
@@ -70,6 +71,10 @@
     if ([segue.identifier isEqualToString:@"NewBook"] && [segue.destinationViewController isKindOfClass:[NewBookViewController class]]) {
         NewBookViewController *nbvc = segue.destinationViewController;
         nbvc.isbn = sender;
+    }
+    else if ([segue.identifier isEqualToString:@"NewBookInstance"] && [segue.destinationViewController isKindOfClass:[NewBookInstanceViewController class]]) {
+        NewBookInstanceViewController *nbivc = segue.destinationViewController;
+        nbivc.isbn = sender;
     }
 }
 

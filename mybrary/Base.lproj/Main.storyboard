@@ -69,11 +69,42 @@
                     <connections>
                         <outlet property="scannerView" destination="x2y-fu-7Qw" id="Etx-FI-wEw"/>
                         <segue destination="wqz-VG-yWJ" kind="push" identifier="NewBook" id="tcI-oB-tx8"/>
+                        <segue destination="C01-mu-fAq" kind="push" identifier="NewBookInstance" id="NUW-kR-QHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXB-ii-FI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1156" y="341"/>
+        </scene>
+        <!--BookInstance View Controller-->
+        <scene sceneID="e9d-cW-TiK">
+            <objects>
+                <viewController id="C01-mu-fAq" userLabel="BookInstance View Controller" customClass="NewBookInstanceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="utV-ZL-Ytc"/>
+                        <viewControllerLayoutGuide type="bottom" id="oEU-A2-det"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3vP-Cy-KgU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm1-oT-ldM">
+                                <rect key="frame" x="137" y="283" width="49" height="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submtBookInstance:" destination="C01-mu-fAq" eventType="touchUpInside" id="bnL-3f-ZVE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AaL-Js-Oa0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIM-iA-Sqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="599"/>
         </scene>
         <!--Create Book View Controller-->
         <scene sceneID="ypL-hs-5u1">
@@ -104,6 +135,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookNameTextField" destination="Tj7-Cm-4Qf" id="MhP-CY-v6O"/>
+                        <segue destination="C01-mu-fAq" kind="push" identifier="NewBookInstance" id="lDr-Uj-mUk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OW-NR-xjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,4 +166,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="lDr-Uj-mUk"/>
+    </inferredMetricsTieBreakers>
 </document>
