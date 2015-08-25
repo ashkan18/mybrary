@@ -21,4 +21,10 @@
          successBlock:(void(^)(id responseObject))successBlock
            errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)createBookWithIsbn:(NSString *)isbn
+                      name:(NSString *)name
+              successBlock:(void(^)(id responseObject))successBlock
+                errorBlock:(void(^)(NSError *error))errorBlock;
+
+
 @end

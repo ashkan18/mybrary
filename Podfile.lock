@@ -48,13 +48,16 @@ PODS:
   - MRProgress/ProgressBaseClass (0.8.2)
   - MRProgress/Stopable (0.8.2):
     - MRProgress/Helper
+  - MTBBarcodeScanner (1.6.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - MRProgress
+  - MTBBarcodeScanner
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
+  MTBBarcodeScanner: beda75d4c1e2750405f62ee53f7a7ee40bf6825b
 
 COCOAPODS: 0.37.2

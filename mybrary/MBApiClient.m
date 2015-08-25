@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://localhost:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.3:3000/"]];
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
     
@@ -50,6 +50,20 @@
        errorBlock(error);
    }];
 
+}
+
+- (void)createBookWithIsbn:(NSString *)isbn name:(NSString *)name successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/books";
+    NSDictionary *params = @{@"isbn":isbn, @"name": name};
+    
+    [self POST:path
+    parameters:params
+       success:^(NSURLSessionDataTask *task, id responseObject)  {
+           successBlock(responseObject);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           errorBlock(error);
+       }];
 }
 
 @end

@@ -10,11 +10,13 @@
 #import "MBApiClient.h"
 #import <MapKit/MKAnnotation.h>
 #import "MBMapAnnotation.h"
+#import "PostViewController.h"
 
 
 @interface MainViewController()
 
 @property (nonatomic , strong) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
 
 @end
 
@@ -40,7 +42,6 @@
              [self.locationManager requestAlwaysAuthorization];
          }
         [self.locationManager startMonitoringSignificantLocationChanges];
-    
     }
     
 }
@@ -99,6 +100,17 @@
         CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[[dict[@"location"] objectAtIndex:0] doubleValue], [[dict[@"location"] objectAtIndex:1] doubleValue]};
         ann.coordinate = coord;
         [self.mapView addAnnotation:ann];
+    }
+}
+
+- (IBAction)postButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"showScanner" sender:self];
+}
+     
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showScanner"] && [segue.destinationViewController isKindOfClass:[PostViewController class]]) {
+        NSLog(@"Goto scanner");
     }
 }
 

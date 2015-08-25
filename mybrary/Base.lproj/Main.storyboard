@@ -29,14 +29,86 @@
                             <constraint firstAttribute="trailingMargin" secondItem="o9n-id-RkZ" secondAttribute="trailing" constant="-16" id="ljM-RN-qQb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yAv-iT-cNT"/>
+                    <navigationItem key="navigationItem" id="yAv-iT-cNT">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="wCP-Z7-Svl">
+                            <connections>
+                                <action selector="postButtonPressed:" destination="BYZ-38-t0r" id="xrS-uA-zd1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="o9n-id-RkZ" id="StX-n6-Hmj"/>
+                        <outlet property="postButton" destination="wCP-Z7-Svl" id="PU4-hQ-gt8"/>
+                        <segue destination="UDy-MB-cU7" kind="push" identifier="showScanner" id="ECF-e5-fMD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="341"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="JGs-ig-Nj7">
+            <objects>
+                <viewController id="UDy-MB-cU7" userLabel="Post View Controller" customClass="PostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kgR-4j-5OO"/>
+                        <viewControllerLayoutGuide type="bottom" id="tIT-ZV-LyF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Daf-iO-avm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2y-fu-7Qw">
+                                <rect key="frame" x="2" y="64" width="318" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mybrary" id="r7l-TC-vFX"/>
+                    <connections>
+                        <outlet property="scannerView" destination="x2y-fu-7Qw" id="Etx-FI-wEw"/>
+                        <segue destination="wqz-VG-yWJ" kind="push" identifier="NewBook" id="tcI-oB-tx8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TXB-ii-FI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="341"/>
+        </scene>
+        <!--Create Book View Controller-->
+        <scene sceneID="ypL-hs-5u1">
+            <objects>
+                <viewController id="wqz-VG-yWJ" userLabel="Create Book View Controller" customClass="NewBookViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ww8-DW-Nxg"/>
+                        <viewControllerLayoutGuide type="bottom" id="PVS-nw-ptE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oWI-tF-kOE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tj7-Cm-4Qf">
+                                <rect key="frame" x="16" y="132" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QkV-z5-X33">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="S4Y-nB-6n0">
+                            <connections>
+                                <action selector="createBookPressed:" destination="wqz-VG-yWJ" id="nBK-cj-uwt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookNameTextField" destination="Tj7-Cm-4Qf" id="MhP-CY-v6O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4OW-NR-xjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="-97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5b3-Ls-b5F">
