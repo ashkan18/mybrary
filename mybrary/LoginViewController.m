@@ -35,7 +35,6 @@
                                          //set access token
                                          [MBApiClient sharedClient].accessToken = responseObject[@"access_token"];
                                          [[MBApiClient sharedClient].requestSerializer setValue:responseObject[@"access_token"] forHTTPHeaderField:@"X-Authtoken"];
-                                         //[[MBApiClient sharedClient].requestSerializer setValue:responseObject[@"access_token"] forUndefinedKey:@"X-Authtoken" ];
                                          [self performSegueWithIdentifier:@"mainPage" sender:self];
                                          
                                      } errorBlock:^(NSError *error) {
@@ -44,6 +43,9 @@
                                      }];
 }
 
+- (IBAction)signupPressed:(id)sender {
+    [self performSegueWithIdentifier:@"signUp" sender:self];
+}
 
 #pragma mark - Navigation
 /*

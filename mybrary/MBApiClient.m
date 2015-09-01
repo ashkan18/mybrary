@@ -36,6 +36,22 @@
        }];
 }
 
+- (void)registerUserWithName:(NSString *)name userName:(NSString *)userName password:(NSString *)password successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/users";
+    
+    [self POST:path
+    parameters:@{@"name": name,
+                 @"user_name":userName,
+                 @"password":password,
+                 @"type": @1}
+       success:^(NSURLSessionDataTask *task, id responseObject) {
+           successBlock(responseObject);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           errorBlock(error);
+       }];
+}
+
 - (void)getBookByIsbn:(NSString *)isbn
          successBlock:(void(^)(id responseObject))successBlock
            errorBlock:(void(^)(NSError *error))errorBlock

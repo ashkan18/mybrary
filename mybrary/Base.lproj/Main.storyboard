@@ -58,6 +58,55 @@
             </objects>
             <point key="canvasLocation" x="694" y="341"/>
         </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="5zw-Zz-zQI">
+            <objects>
+                <viewController id="ot4-6P-UIU" userLabel="Sign Up View Controller" customClass="SignUpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="20o-TV-LJM"/>
+                        <viewControllerLayoutGuide type="bottom" id="iEj-Cy-win"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0FS-DT-uqd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-Bk-fIl">
+                                <rect key="frame" x="112" y="121" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="userName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhS-XW-bbE">
+                                <rect key="frame" x="112" y="168" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-0m-km9">
+                                <rect key="frame" x="112" y="219" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27e-IY-UJ9">
+                                <rect key="frame" x="137" y="277" width="49" height="30"/>
+                                <state key="normal" title="Signup">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="ot4-6P-UIU" eventType="touchUpInside" id="Wss-CK-Tca"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameField" destination="gAb-Bk-fIl" id="mvc-wy-ptI"/>
+                        <outlet property="passwordField" destination="DDG-0m-km9" id="L4H-eS-39X"/>
+                        <outlet property="usernameField" destination="DhS-XW-bbE" id="2Yk-MQ-yLV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQW-4N-6NX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="1061"/>
+        </scene>
         <!--Post View Controller-->
         <scene sceneID="JGs-ig-Nj7">
             <objects>
@@ -215,6 +264,15 @@
                                     <action selector="loginPressed:" destination="8Fn-a7-3KI" eventType="touchUpInside" id="HhV-7y-BZe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ6-3L-Lyb">
+                                <rect key="frame" x="137" y="293" width="55" height="30"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupPressed:" destination="8Fn-a7-3KI" eventType="touchUpInside" id="BYG-bc-2Sp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -224,6 +282,7 @@
                         <outlet property="passwordField" destination="kr8-LX-dRL" id="96X-WI-8Gf"/>
                         <outlet property="userNameField" destination="ted-fB-roI" id="z4V-xE-F2u"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="mainPage" id="HCd-Fo-Xhe"/>
+                        <segue destination="ot4-6P-UIU" kind="modal" identifier="signUp" id="aUe-C0-CTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oee-Xu-SMI" userLabel="First Responder" sceneMemberID="firstResponder"/>

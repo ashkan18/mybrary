@@ -20,6 +20,12 @@
              successBlock:(void(^)(id responseObject))successBlock
                errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)registerUserWithName:(NSString *)name
+                    userName:(NSString *)userName
+                    password:(NSString *)password
+                successBlock:(void(^)(id responseObject))successBlock
+                  errorBlock:(void(^)(NSError *error))errorBlock;
+
 
 - (void)getBookInstancesByLocation:(CLLocation *)location
                       successBlock:(void(^)(id responseObject))successBlock
