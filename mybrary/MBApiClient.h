@@ -13,7 +13,15 @@
 
 + (instancetype)sharedClient;
 
-- (void)getBookInstancesByLocation: (CLLocation *)location
+@property NSString *accessToken;
+
+- (void)loginWithUserName:(NSString *)userName
+                 password:(NSString *)password
+             successBlock:(void(^)(id responseObject))successBlock
+               errorBlock:(void(^)(NSError *error))errorBlock;
+
+
+- (void)getBookInstancesByLocation:(CLLocation *)location
                       successBlock:(void(^)(id responseObject))successBlock
                         errorBlock:(void(^)(NSError *error))errorBlock;
 

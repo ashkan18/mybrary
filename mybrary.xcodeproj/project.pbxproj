@@ -23,6 +23,7 @@
 		41355EB91B8BA0A60086BFD6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41355EB81B8BA0A60086BFD6 /* Images.xcassets */; };
 		41355EBC1B8BA0A60086BFD6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41355EBA1B8BA0A60086BFD6 /* LaunchScreen.xib */; };
 		41355EC81B8BA0A60086BFD6 /* mybraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EC71B8BA0A60086BFD6 /* mybraryTests.m */; };
+		41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28A1B95295E00AA196D /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		41355EC11B8BA0A60086BFD6 /* mybraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mybraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41355EC61B8BA0A60086BFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41355EC71B8BA0A60086BFD6 /* mybraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mybraryTests.m; sourceTree = "<group>"; };
+		41F6C2891B95295E00AA196D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		41F6C28A1B95295E00AA196D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		451421A2B8C07D4ED0A1FD04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4ED5A45E40A2DDEB62D03717 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDB943840F0CC4A4BC4EF4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				41230F3A1B8D00FF005BAC68 /* NewBookViewController.m */,
 				41230F401B8D1372005BAC68 /* NewBookInstanceViewController.h */,
 				41230F411B8D1372005BAC68 /* NewBookInstanceViewController.m */,
+				41F6C2891B95295E00AA196D /* LoginViewController.h */,
+				41F6C28A1B95295E00AA196D /* LoginViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */,
 				41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */,
 				41230F371B8CE5B1005BAC68 /* PostViewController.m in Sources */,
+				41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */,
 				41355EB41B8BA0A60086BFD6 /* MainViewController.m in Sources */,
 				41355EB11B8BA0A60086BFD6 /* AppDelegate.m in Sources */,
 				41230F3B1B8D00FF005BAC68 /* NewBookViewController.m in Sources */,

@@ -23,6 +23,19 @@
     return sharedManager;
 }
 
+- (void)loginWithUserName:(NSString *)userName password:(NSString *)password successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/auth";
+    
+    [self POST:path
+    parameters:@{@"user_name": userName, @"password": password}
+       success:^(NSURLSessionDataTask *task, id responseObject) {
+           successBlock(responseObject);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           errorBlock(error);
+       }];
+}
+
 - (void)getBookByIsbn:(NSString *)isbn
          successBlock:(void(^)(id responseObject))successBlock
            errorBlock:(void(^)(NSError *error))errorBlock
