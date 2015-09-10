@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *giveOptions;
 @property (strong, atomic) NSArray *givePossibleOptions;
+@property (strong, atomic) NSNumber *selectedOption;
+
 @end
 
 @implementation NewBookInstanceViewController
@@ -27,6 +29,7 @@
     self.giveOptions.dataSource = self;
     self.bookNameLabel.text = self.bookName;
     self.givePossibleOptions = @[@"Free", @"Rent", @"Sell"];
+    self.selectedOption = @1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,6 +40,8 @@
     
     CLLocation *location = [[LocationManager sharedClient] location];
     [[MBApiClient sharedClient] createBookInstanceWithIsbn:self.isbn
+                                                      type:self.selectedOption
+                                                     price:nil
                                                   location:location
                                               successBlock:^(id responseObject) {
                                                   [self.navigationController popToRootViewControllerAnimated:YES];
@@ -68,6 +73,7 @@
 {
     // This method is triggered whenever the user makes a change to the picker selection.
     // The parameter named row and component represents what was selected.
+    self.selectedOption = [NSNumber numberWithInteger:row + 1];
 }
 
 /*

@@ -96,10 +96,17 @@
        }];
 }
 
-- (void)createBookInstanceWithIsbn:(NSString *)isbn location:(CLLocation *)location successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+- (void)createBookInstanceWithIsbn:(NSString *)isbn
+                              type:(NSNumber *)giveType
+                             price:(NSNumber *)price
+                          location:(CLLocation *)location
+                      successBlock:(void(^)(id responseObject))successBlock
+                        errorBlock:(void(^)(NSError *error))errorBlock
 {
     NSString *path = @"api/book_instances";
-    NSDictionary *params = @{@"isbn":isbn, @"location": @{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
+    NSDictionary *params = @{@"isbn":isbn,
+                             @"give_type":giveType,
+                             @"location": @{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
                                                           @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}};
     
     [self POST:path

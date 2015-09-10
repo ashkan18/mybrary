@@ -41,6 +41,8 @@
                 errorBlock:(void(^)(NSError *error))errorBlock;
 
 - (void)createBookInstanceWithIsbn:(NSString *)isbn
+                              type:(NSNumber *)giveType
+                             price:(NSNumber *)price
                           location:(CLLocation *)location
                       successBlock:(void(^)(id responseObject))successBlock
                         errorBlock:(void(^)(NSError *error))errorBlock;
