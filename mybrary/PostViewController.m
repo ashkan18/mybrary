@@ -11,6 +11,7 @@
 #import "MBApiClient.h"
 #import "NewBookViewController.h"
 #import "NewBookInstanceViewController.h"
+#import "MRProgress.h"
 
 @interface PostViewController ()
 @property (weak, nonatomic) IBOutlet UIView *scannerView;
@@ -34,10 +35,13 @@
                 NSLog(@"Found code: %@", code.stringValue);
                 
                 [self.scanner stopScanning];
+                [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
                 [[MBApiClient sharedClient] getBookByIsbn:code.stringValue
                                              successBlock:^(id responseObject) {
+                                                 [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  [self handleKnownBarcode:responseObject];
                                              } errorBlock:^(NSError *error) {
+                                                 [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  [self handleUnKnownBarcode:code.stringValue];
                                              }];
             }];

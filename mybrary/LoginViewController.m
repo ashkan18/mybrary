@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "MBApiClient.h"
 #import "MRProgress.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -22,12 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"Login";
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"AccessToken"]) {
-        NSString *accessToken = [defaults objectForKey:@"AccessToken"];
-        [self loginWithToken:accessToken];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +57,8 @@
     [defaults setObject:token forKey:@"AccessToken"];
     [defaults synchronize];
     
-    [self performSegueWithIdentifier:@"mainPage" sender:self];
+    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
 }
 
 

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MBApiClient.h"
 
 
 @interface AppDelegate ()
@@ -19,6 +19,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"AccessToken"]) {
+        NSString *accessToken = [defaults objectForKey:@"AccessToken"];
+        [MBApiClient sharedClient].accessToken = accessToken;
+        [[MBApiClient sharedClient].requestSerializer setValue:accessToken forHTTPHeaderField:@"X-Authtoken"];
+        
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    }
+    else
+    {
+        UIViewController* rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
+        
+        self.window.rootViewController = navigation;
+    }
     return YES;
 }
 
