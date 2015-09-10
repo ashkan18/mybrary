@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "MBApiClient.h"
+#import "MRProgress.h"
 
 @interface LoginViewController ()
 
@@ -21,6 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Login";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"AccessToken"]) {
+        NSString *accessToken = [defaults objectForKey:@"AccessToken"];
+        [self loginWithToken:accessToken];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,19 +36,35 @@
 }
 
 - (IBAction)loginPressed:(id)sender {
+    [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
     [[MBApiClient sharedClient] loginWithUserName:self.userNameField.text
                                          password:self.passwordField.text
                                      successBlock:^(id responseObject) {
-                                         //set access token
-                                         [MBApiClient sharedClient].accessToken = responseObject[@"access_token"];
-                                         [[MBApiClient sharedClient].requestSerializer setValue:responseObject[@"access_token"] forHTTPHeaderField:@"X-Authtoken"];
-                                         [self performSegueWithIdentifier:@"mainPage" sender:self];
+                                         [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
+                                         
+                                         [self loginWithToken:responseObject[@"access_token"]];
+                                         
                                          
                                      } errorBlock:^(NSError *error) {
                                          // show error
+                                         [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                          NSLog(@"There was an error in login");
                                      }];
 }
+
+
+- (void)loginWithToken:(NSString *)token
+{
+    [MBApiClient sharedClient].accessToken = token;
+    [[MBApiClient sharedClient].requestSerializer setValue:token forHTTPHeaderField:@"X-Authtoken"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:@"AccessToken"];
+    [defaults synchronize];
+    
+    [self performSegueWithIdentifier:@"mainPage" sender:self];
+}
+
 
 - (IBAction)signupPressed:(id)sender {
     [self performSegueWithIdentifier:@"signUp" sender:self];

@@ -27,7 +27,7 @@
                   errorBlock:(void(^)(NSError *error))errorBlock;
 
 
-- (void)getBookInstancesByLocation:(CLLocation *)location
+- (void)getBooksByLocation:(CLLocation *)location
                       successBlock:(void(^)(id responseObject))successBlock
                         errorBlock:(void(^)(NSError *error))errorBlock;
 

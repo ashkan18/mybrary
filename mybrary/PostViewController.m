@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Scan";
     // Do any additional setup after loading the view.
     self.scanner = [[MTBBarcodeScanner alloc] initWithPreviewView:self.scannerView];
     
@@ -35,7 +36,7 @@
                 [self.scanner stopScanning];
                 [[MBApiClient sharedClient] getBookByIsbn:code.stringValue
                                              successBlock:^(id responseObject) {
-                                                 [self handleKnownBarcode:code.stringValue];
+                                                 [self handleKnownBarcode:responseObject];
                                              } errorBlock:^(NSError *error) {
                                                  [self handleUnKnownBarcode:code.stringValue];
                                              }];
@@ -52,9 +53,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)handleKnownBarcode:(NSString *)barcode
+- (void)handleKnownBarcode:(id )response
 {
-    [self performSegueWithIdentifier:@"NewBookInstance" sender:barcode];
+    [self performSegueWithIdentifier:@"NewBookInstance" sender:response];
 }
 
 - (void)handleUnKnownBarcode:(NSString *)barcode
@@ -74,7 +75,8 @@
     }
     else if ([segue.identifier isEqualToString:@"NewBookInstance"] && [segue.destinationViewController isKindOfClass:[NewBookInstanceViewController class]]) {
         NewBookInstanceViewController *nbivc = segue.destinationViewController;
-        nbivc.isbn = sender;
+        nbivc.isbn = sender[@"isbn"];
+        nbivc.bookName = sender[@"name"];
     }
 }
 

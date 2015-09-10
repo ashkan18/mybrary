@@ -11,5 +11,6 @@
 @interface NewBookInstanceViewController : UIViewController
 
 @property (strong, atomic) NSString *isbn;
+@property (strong, atomic) NSString *bookName;
 
 @end

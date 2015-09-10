@@ -8,6 +8,7 @@
 
 #import "NewBookViewController.h"
 #import "MBApiClient.h"
+#import "NewBookInstanceViewController.h"
 
 @interface NewBookViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *bookNameTextField;
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,8 +31,12 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"NewBookInstance"]) {
+        NewBookInstanceViewController *nbivc = segue.destinationViewController;
+        nbivc.isbn = self.isbn;
+        nbivc.bookName = self.bookNameTextField.text;
+    }
+    
 }
 
 
@@ -41,6 +46,7 @@
                                       successBlock:^(id responseObject) {
                                           // book submitted succesfuly go to next page
                                           NSLog(@"book submitted");
+                                          [self performSegueWithIdentifier:@"NewBookInstance" sender:self];
                                       }
                                         errorBlock:^(NSError *error) {
                                             // there was an issue in submitting the book

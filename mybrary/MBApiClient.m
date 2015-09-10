@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.3:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://25.208.214.230:3000/"]];
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
     
@@ -28,7 +28,7 @@
     NSString *path = @"api/auth";
     
     [self POST:path
-    parameters:@{@"user_name": userName, @"password": password}
+    parameters:@{@"email": userName, @"password": password}
        success:^(NSURLSessionDataTask *task, id responseObject) {
            successBlock(responseObject);
        } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -56,9 +56,10 @@
          successBlock:(void(^)(id responseObject))successBlock
            errorBlock:(void(^)(NSError *error))errorBlock
 {
-    NSString *path = @"api/books";
+    NSString *path = [NSString stringWithFormat:@"api/books/%@" ,isbn];
     [self GET:path
-   parameters:@{@"isbn": isbn} success:^(NSURLSessionDataTask *task, id responseObject) {
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
        successBlock(responseObject);
        
    } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -66,9 +67,9 @@
    }];
 }
 
-- (void)getBookInstancesByLocation:(CLLocation *)location successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+- (void)getBooksByLocation:(CLLocation *)location successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
 {
-    NSString *path = @"api/book_instances";
+    NSString *path = @"api/books";
     [self GET:path
    parameters:@{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
                 @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}

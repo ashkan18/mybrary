@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - MRProgress (0.8.2):
@@ -29,6 +29,32 @@ PODS:
     - MRProgress/Overlay (= 0.8.2)
   - MRProgress/ActivityIndicator (0.8.2):
     - MRProgress/Stopable
+  - MRProgress/AFNetworking (0.8.2):
+    - MRProgress/AFNetworking/ActivityIndicator (= 0.8.2)
+    - MRProgress/AFNetworking/Base (= 0.8.2)
+    - MRProgress/AFNetworking/Circular (= 0.8.2)
+    - MRProgress/AFNetworking/NavigationBarProgress (= 0.8.2)
+    - MRProgress/AFNetworking/Overlay (= 0.8.2)
+    - MRProgress/AFNetworking/ProgressBaseClass (= 0.8.2)
+  - MRProgress/AFNetworking/ActivityIndicator (0.8.2):
+    - MRProgress/ActivityIndicator
+    - MRProgress/AFNetworking/Base
+  - MRProgress/AFNetworking/Base (0.8.2):
+    - AFNetworking (~> 2.5.2)
+    - AFNetworking/UIKit
+    - MRProgress/MethodCopier
+  - MRProgress/AFNetworking/Circular (0.8.2):
+    - MRProgress/AFNetworking/ProgressBaseClass
+  - MRProgress/AFNetworking/NavigationBarProgress (0.8.2):
+    - MRProgress/AFNetworking/ProgressBaseClass
+  - MRProgress/AFNetworking/Overlay (0.8.2):
+    - MRProgress/AFNetworking/ActivityIndicator
+    - MRProgress/AFNetworking/Base
+    - MRProgress/AFNetworking/Circular
+    - MRProgress/Overlay
+  - MRProgress/AFNetworking/ProgressBaseClass (0.8.2):
+    - MRProgress/AFNetworking/Base
+    - MRProgress/ProgressBaseClass
   - MRProgress/Blur (0.8.2):
     - MRProgress/Helper
   - MRProgress/Circular (0.8.2):
@@ -37,6 +63,7 @@ PODS:
     - MRProgress/Stopable
   - MRProgress/Helper (0.8.2)
   - MRProgress/Icons (0.8.2)
+  - MRProgress/MethodCopier (0.8.2)
   - MRProgress/NavigationBarProgress (0.8.2):
     - MRProgress/ProgressBaseClass
   - MRProgress/Overlay (0.8.2):
@@ -48,16 +75,17 @@ PODS:
   - MRProgress/ProgressBaseClass (0.8.2)
   - MRProgress/Stopable (0.8.2):
     - MRProgress/Helper
-  - MTBBarcodeScanner (1.6.1)
+  - MTBBarcodeScanner (1.8.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - MRProgress
+  - MRProgress/AFNetworking
   - MTBBarcodeScanner
 
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
-  MTBBarcodeScanner: beda75d4c1e2750405f62ee53f7a7ee40bf6825b
+  MTBBarcodeScanner: 4b68473960d351a4359fafd4c9871790ad61cb5a
 
 COCOAPODS: 0.37.2

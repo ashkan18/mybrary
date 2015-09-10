@@ -25,6 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"MyBrary";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonPressed:)];
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.leftBarButtonItem = nil;
     
     [self setupLocationManager];
 }
@@ -37,6 +42,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     
 }
 
@@ -68,7 +74,7 @@
 
 - (void)getBooksWithLocation:(CLLocation *)location
 {
-    [[MBApiClient sharedClient]getBookInstancesByLocation:location
+    [[MBApiClient sharedClient]getBooksByLocation:location
                                              successBlock:^(id responseObject) {
                                                  NSLog(@"received response %@", responseObject);
                                                  [self updateShowAnnotations:responseObject];
@@ -81,17 +87,19 @@
 
 - (void)updateShowAnnotations:(id) response
 {
-    for (NSDictionary *dict in response) {
-        MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];
-        ann.title = dict[@"book"][@"name"];
-        ann.subtitle = dict[@"book"][@"isbn"];
-        CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[[dict[@"location"] objectAtIndex:0] doubleValue], [[dict[@"location"] objectAtIndex:1] doubleValue]};
-        ann.coordinate = coord;
-        [self.mapView addAnnotation:ann];
+    for (NSDictionary *bookDict in response[@"books"]) {
+        for (NSDictionary *bookInstanceDict in bookDict[@"book_instances"]) {
+            MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];
+            ann.title = bookDict[@"name"];
+            ann.subtitle = bookDict[@"isbn"];
+            CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[bookInstanceDict[@"lat"] doubleValue], [bookInstanceDict[@"lon"] doubleValue]};
+            ann.coordinate = coord;
+            [self.mapView addAnnotation:ann];
+        }
     }
 }
 
-- (IBAction)postButtonPressed:(id)sender {
+- (void)postButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"showScanner" sender:self];
 }
      
