@@ -50,6 +50,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)moreButtonPressed:(id)sender {
+    
+}
+
 - (IBAction)searchButtonPressed:(id)sender {
     [self getBooksWithLocation:[[LocationManager sharedClient] location] query:[self getSearchString]];
     
@@ -105,7 +109,7 @@
 
 - (void)updateShowAnnotations:(id) response
 {
-    
+    [self.mapView removeAnnotations:self.mapView.annotations];
     for (NSDictionary *bookDict in response[@"books"]) {
         for (NSDictionary *bookInstanceDict in bookDict[@"book_instances"]) {
             MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];

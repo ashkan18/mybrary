@@ -58,7 +58,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="yAv-iT-cNT">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="dots" id="ql6-3p-ehX"/>
+                        <barButtonItem key="leftBarButtonItem" image="dots" id="99m-KI-IFZ">
+                            <connections>
+                                <action selector="moreButtonPressed:" destination="BYZ-38-t0r" id="gP7-z4-xXx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
