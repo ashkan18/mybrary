@@ -12,11 +12,13 @@
 #import "MBMapAnnotation.h"
 #import "PostViewController.h"
 #import "LocationManager.h"
+#import "MRProgress.h"
 
 
 @interface MainViewController()
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (strong, atomic) NSArray *annotaions;
 
 @end
 
@@ -27,9 +29,6 @@
     [super viewDidLoad];
     self.title = @"MyBrary";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonPressed:)];
-    
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.leftBarButtonItem = nil;
     
     [self setupLocationManager];
 }
@@ -43,7 +42,7 @@
 {
     [super viewWillAppear:animated];
     
-    
+    [self getBooksWithLocation:[[LocationManager sharedClient] location] query:[self getSearchString]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +50,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)searchButtonPressed:(id)sender {
+    [self getBooksWithLocation:[[LocationManager sharedClient] location] query:[self getSearchString]];
+    
+}
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -61,9 +64,19 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *crnLoc = [locations lastObject];
-    [self mapSetRegion:crnLoc];
-    [self getBooksWithLocation:crnLoc];
+    [self getBooksWithLocation:crnLoc query:[self getSearchString]];
     
+}
+
+- (NSString *)getSearchString
+{
+    if ([self.searchTextField.text length] > 3) {
+        return self.searchTextField.text;
+    }
+    else {
+        return nil;
+    }
+        
 }
 
 - (void)mapSetRegion:(CLLocation *)center
@@ -72,13 +85,18 @@
     [self.mapView setRegion:MKCoordinateRegionMake(center.coordinate, span)];
 }
 
-- (void)getBooksWithLocation:(CLLocation *)location
+- (void)getBooksWithLocation:(CLLocation *)location query:(NSString *)queryString
 {
+    [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
+    [self mapSetRegion:location];
     [[MBApiClient sharedClient]getBooksByLocation:location
+                                            query:queryString
                                              successBlock:^(id responseObject) {
+                                                 [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  NSLog(@"received response %@", responseObject);
                                                  [self updateShowAnnotations:responseObject];
                                              } errorBlock:^(NSError *error) {
+                                                 [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  NSLog(@"error baba");
                                                  
                                              }];
@@ -87,6 +105,7 @@
 
 - (void)updateShowAnnotations:(id) response
 {
+    
     for (NSDictionary *bookDict in response[@"books"]) {
         for (NSDictionary *bookInstanceDict in bookDict[@"book_instances"]) {
             MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];

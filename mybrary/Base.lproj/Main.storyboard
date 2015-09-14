@@ -17,34 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhh-MV-RPM">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Profile" id="sDS-W4-pci"/>
-                                    <tabBarItem title="Mybrary" image="my_books" id="Wf3-39-LAN"/>
-                                </items>
-                            </tabBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o9n-id-RkZ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </mapView>
+                            <textField clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-1N-g82" userLabel="Search Field">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yxQ-J5-RJb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-rv-wNF" userLabel="Search Button">
+                                <rect key="frame" x="258" y="66" width="41" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="c03-Ct-Kwk"/>
+                                    <constraint firstAttribute="width" constant="41" id="hMD-31-lxR"/>
+                                </constraints>
+                                <state key="normal" image="search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZFR-jD-8dc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="o9n-id-RkZ" secondAttribute="bottom" constant="49" id="8Mj-Bu-k7L"/>
+                            <constraint firstItem="Aic-1N-g82" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8f0-cy-KNg"/>
                             <constraint firstItem="o9n-id-RkZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8gE-Fr-tyP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="o9n-id-RkZ" secondAttribute="bottom" id="8mk-Ay-BeI"/>
+                            <constraint firstItem="Aic-1N-g82" firstAttribute="top" secondItem="jg3-rv-wNF" secondAttribute="bottom" constant="-36" id="AZv-FI-ug4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o9n-id-RkZ" secondAttribute="trailing" constant="-16" id="GQX-8l-Yd5"/>
-                            <constraint firstItem="xhh-MV-RPM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="H2j-3X-KL5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xhh-MV-RPM" secondAttribute="trailing" constant="-16" id="Lhj-Mn-jM8"/>
+                            <constraint firstItem="Aic-1N-g82" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Kde-eq-him"/>
+                            <constraint firstItem="Aic-1N-g82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Nq8-14-aJl"/>
                             <constraint firstItem="o9n-id-RkZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="bvo-gc-eLM"/>
-                            <constraint firstItem="xhh-MV-RPM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="fpC-7p-p7b"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xhh-MV-RPM" secondAttribute="bottom" id="wIe-4f-Cu2"/>
+                            <constraint firstItem="Aic-1N-g82" firstAttribute="trailing" secondItem="jg3-rv-wNF" secondAttribute="trailing" constant="5" id="tLG-8x-hMb"/>
+                            <constraint firstItem="o9n-id-RkZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zIk-3p-VcL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yAv-iT-cNT"/>
+                    <navigationItem key="navigationItem" id="yAv-iT-cNT">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="dots" id="ql6-3p-ehX"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="o9n-id-RkZ" id="StX-n6-Hmj"/>
+                        <outlet property="searchTextField" destination="Aic-1N-g82" id="tX3-vr-bJo"/>
                         <segue destination="UDy-MB-cU7" kind="push" identifier="showScanner" id="ECF-e5-fMD"/>
                     </connections>
                 </viewController>
@@ -149,14 +168,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfO-cl-LJA" userLabel="Name">
-                                <rect key="frame" x="16" y="91" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-Y0-a0i">
-                                <rect key="frame" x="139" y="107" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfO-cl-LJA" userLabel="Name">
+                                <rect key="frame" x="16" y="91" width="288" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="GrJ-oY-53b"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -165,7 +181,7 @@
                                 <rect key="frame" x="0.0" y="177" width="320" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm1-oT-ldM">
-                                <rect key="frame" x="136" y="370" width="49" height="30"/>
+                                <rect key="frame" x="136" y="518" width="49" height="30"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -175,10 +191,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mfO-cl-LJA" firstAttribute="top" secondItem="utV-ZL-Ytc" secondAttribute="bottom" constant="27" id="aNo-Hk-XwR"/>
+                            <constraint firstItem="mfO-cl-LJA" firstAttribute="trailing" secondItem="3vP-Cy-KgU" secondAttribute="trailingMargin" id="fjs-JW-w3R"/>
+                            <constraint firstItem="mfO-cl-LJA" firstAttribute="leading" secondItem="3vP-Cy-KgU" secondAttribute="leadingMargin" id="yKn-g5-sn1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AaL-Js-Oa0"/>
                     <connections>
-                        <outlet property="bookNameLabel" destination="uvb-Y0-a0i" id="Nx8-Na-8QC"/>
+                        <outlet property="bookNameLabel" destination="mfO-cl-LJA" id="b1U-xA-LYh"/>
                         <outlet property="giveOptions" destination="vdo-aS-pLr" id="Wvv-fK-qNr"/>
                     </connections>
                 </viewController>
@@ -198,13 +219,31 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tj7-Cm-4Qf">
-                                <rect key="frame" x="16" y="132" width="288" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGi-TM-O2W">
+                                <rect key="frame" x="16" y="155" width="288" height="40"/>
+                                <string key="text">:( We were not able to find your book.
+please enter book name 
+and we make sure we remember it for you :) </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tj7-Cm-4Qf">
+                                <rect key="frame" x="16" y="214" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="leading" secondItem="oWI-tF-kOE" secondAttribute="leadingMargin" id="CpY-Nh-FpV"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="trailing" secondItem="oWI-tF-kOE" secondAttribute="trailingMargin" id="SOP-zv-bzX"/>
+                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="trailing" secondItem="oWI-tF-kOE" secondAttribute="trailingMargin" id="W1n-Hr-Gh4"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="leading" secondItem="oWI-tF-kOE" secondAttribute="leadingMargin" id="fEt-lt-H9f"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="top" secondItem="Ww8-DW-Nxg" secondAttribute="bottom" constant="91" id="iyp-FR-OHC"/>
+                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="top" secondItem="iGi-TM-O2W" secondAttribute="bottom" constant="19" id="n6e-OB-YcA"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="leading" secondItem="Tj7-Cm-4Qf" secondAttribute="trailing" constant="-288" id="wNr-JU-Gxh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QkV-z5-X33">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="S4Y-nB-6n0">
@@ -297,7 +336,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="my_books" width="72" height="70"/>
+        <image name="dots" width="45" height="44"/>
+        <image name="search" width="87" height="80"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -305,6 +345,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lDr-Uj-mUk"/>
+        <segue reference="NUW-kR-QHN"/>
     </inferredMetricsTieBreakers>
 </document>

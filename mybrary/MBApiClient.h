@@ -28,8 +28,9 @@
 
 
 - (void)getBooksByLocation:(CLLocation *)location
-                      successBlock:(void(^)(id responseObject))successBlock
-                        errorBlock:(void(^)(NSError *error))errorBlock;
+                     query:(NSString *)query
+              successBlock:(void(^)(id responseObject))successBlock
+                errorBlock:(void(^)(NSError *error))errorBlock;
 
 - (void)getBookByIsbn:(NSString *)isbn
          successBlock:(void(^)(id responseObject))successBlock

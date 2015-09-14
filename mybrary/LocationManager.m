@@ -21,8 +21,8 @@
         sharedManager.desiredAccuracy = kCLLocationAccuracyKilometer;
         
         // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-        if ([sharedManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [sharedManager requestAlwaysAuthorization];
+        if ([sharedManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [sharedManager requestWhenInUseAuthorization];
         }
         [sharedManager startMonitoringSignificantLocationChanges];
     });

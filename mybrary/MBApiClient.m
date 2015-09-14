@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.5:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.2:3000/"]];
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
     
@@ -67,12 +67,20 @@
    }];
 }
 
-- (void)getBooksByLocation:(CLLocation *)location successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+- (void)getBooksByLocation:(CLLocation *)location
+                     query:(NSString *)query
+              successBlock:(void(^)(id responseObject))successBlock
+                errorBlock:(void(^)(NSError *error))errorBlock
 {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
+                                                                                  @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}];
+    if (query) {
+        params[@"query"] = query;
+    }
+    
     NSString *path = @"api/books";
     [self GET:path
-   parameters:@{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
-                @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}
+   parameters:params
       success:^(NSURLSessionDataTask *task, id responseObject) {
        successBlock(responseObject);
        

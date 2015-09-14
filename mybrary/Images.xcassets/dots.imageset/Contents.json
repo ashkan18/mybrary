@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "my_books.png"
+      "filename" : "dots_2x-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "my_books-1.png"
+      "filename" : "dots_2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "my_books-2.png"
+      "filename" : "dots_3x.png"
     }
   ],
   "info" : {
