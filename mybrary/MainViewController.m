@@ -55,6 +55,7 @@
 }
 
 - (IBAction)searchButtonPressed:(id)sender {
+    [self resignFirstResponder];
     [self getBooksWithLocation:[[LocationManager sharedClient] location] query:[self getSearchString]];
     
 }
