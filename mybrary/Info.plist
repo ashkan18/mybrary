@@ -41,6 +41,10 @@
 		<string>MKDirectionsModePedestrian</string>
 		<string>MKDirectionsModeSubway</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>need location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Send location to Uook server</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -63,11 +67,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Send location to Uook server</string>
 	<key>privacy - location usage description</key>
-	<string>need location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
 	<string>need location</string>
 </dict>
 </plist>

@@ -87,23 +87,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-Bk-fIl">
-                                <rect key="frame" x="112" y="121" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhS-XW-bbE">
+                                <rect key="frame" x="16" y="168" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="userName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhS-XW-bbE">
-                                <rect key="frame" x="112" y="168" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-0m-km9">
-                                <rect key="frame" x="112" y="219" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-0m-km9">
+                                <rect key="frame" x="16" y="213" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27e-IY-UJ9">
-                                <rect key="frame" x="137" y="277" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27e-IY-UJ9">
+                                <rect key="frame" x="136" y="332" width="49" height="30"/>
                                 <state key="normal" title="Signup">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -111,8 +106,34 @@
                                     <action selector="signUpPressed:" destination="ot4-6P-UIU" eventType="touchUpInside" id="Wss-CK-Tca"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u37-ZQ-tP3">
+                                <rect key="frame" x="16" y="258" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-Bk-fIl">
+                                <rect key="frame" x="16" y="119" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gAb-Bk-fIl" firstAttribute="top" secondItem="20o-TV-LJM" secondAttribute="bottom" constant="99" id="1tu-dU-CSC"/>
+                            <constraint firstItem="gAb-Bk-fIl" firstAttribute="leading" secondItem="0FS-DT-uqd" secondAttribute="leading" constant="16" id="6Wr-sR-rCs"/>
+                            <constraint firstItem="u37-ZQ-tP3" firstAttribute="width" secondItem="DDG-0m-km9" secondAttribute="width" id="6n9-we-DNs"/>
+                            <constraint firstItem="u37-ZQ-tP3" firstAttribute="centerX" secondItem="27e-IY-UJ9" secondAttribute="centerX" constant="-0.5" id="A2e-gm-MXU"/>
+                            <constraint firstAttribute="trailing" secondItem="gAb-Bk-fIl" secondAttribute="trailing" constant="16" id="ORz-wv-aMg"/>
+                            <constraint firstItem="u37-ZQ-tP3" firstAttribute="leading" secondItem="DDG-0m-km9" secondAttribute="leading" id="OdU-RC-KNd"/>
+                            <constraint firstItem="u37-ZQ-tP3" firstAttribute="top" secondItem="DDG-0m-km9" secondAttribute="bottom" constant="15" id="YLv-MH-Oek"/>
+                            <constraint firstItem="DhS-XW-bbE" firstAttribute="width" secondItem="DDG-0m-km9" secondAttribute="width" id="bCM-Ge-JQe"/>
+                            <constraint firstItem="DDG-0m-km9" firstAttribute="top" secondItem="DhS-XW-bbE" secondAttribute="bottom" constant="15" id="bNX-qe-7Hv"/>
+                            <constraint firstItem="DhS-XW-bbE" firstAttribute="width" secondItem="gAb-Bk-fIl" secondAttribute="width" id="cq0-OA-lOJ"/>
+                            <constraint firstItem="DhS-XW-bbE" firstAttribute="leading" secondItem="DDG-0m-km9" secondAttribute="leading" id="k8Y-RY-RTU"/>
+                            <constraint firstItem="DhS-XW-bbE" firstAttribute="top" secondItem="gAb-Bk-fIl" secondAttribute="bottom" constant="19" id="lIe-RW-zPM"/>
+                            <constraint firstItem="DhS-XW-bbE" firstAttribute="leading" secondItem="gAb-Bk-fIl" secondAttribute="leading" id="nwU-lo-Epz"/>
+                            <constraint firstItem="27e-IY-UJ9" firstAttribute="top" secondItem="u37-ZQ-tP3" secondAttribute="bottom" constant="44" id="x1G-E1-a8m"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="nameField" destination="gAb-Bk-fIl" id="mvc-wy-ptI"/>

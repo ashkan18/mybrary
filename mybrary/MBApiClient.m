@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.2:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
     
@@ -42,7 +42,7 @@
     
     [self POST:path
     parameters:@{@"name": name,
-                 @"user_name":userName,
+                 @"email":userName,
                  @"password":password,
                  @"type": @1}
        success:^(NSURLSessionDataTask *task, id responseObject) {
