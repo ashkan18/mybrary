@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - INTULocationManager (HEAD based on 4.0.0)
   - MRProgress (0.8.2):
     - MRProgress/ActivityIndicator (= 0.8.2)
     - MRProgress/Blur (= 0.8.2)
@@ -79,12 +80,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - INTULocationManager (HEAD)
   - MRProgress
   - MRProgress/AFNetworking
   - MTBBarcodeScanner
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  INTULocationManager: 754f2800415378b7bb2c07be103449e1f6a2cc70
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
   MTBBarcodeScanner: 4b68473960d351a4359fafd4c9871790ad61cb5a
 

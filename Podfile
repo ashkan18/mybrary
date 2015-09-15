@@ -4,3 +4,4 @@ pod 'AFNetworking', '~> 2.0'
 pod 'MRProgress'
 pod 'MRProgress/AFNetworking'
 pod 'MTBBarcodeScanner'
+pod 'INTULocationManager', :head

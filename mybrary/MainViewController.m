@@ -13,6 +13,7 @@
 #import "PostViewController.h"
 #import "LocationManager.h"
 #import "MRProgress.h"
+#import "INTULocationManager.h"
 
 
 @interface MainViewController()
@@ -29,21 +30,32 @@
     [super viewDidLoad];
     self.title = @"MyBrary";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonPressed:)];
-    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self setupLocationManager];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
 }
 
 - (void)setupLocationManager {
-    
-    [LocationManager sharedClient].delegate = self;
+    [[INTULocationManager sharedInstance] subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        if (status == INTULocationStatusSuccess) {
+            [self getBooksWithLocation:currentLocation query:[self getSearchString]];
+            
+        }
+        else {
+            // An error occurred, more info is available by looking at the specific status returned. The subscription has been automatically canceled.
+        }
+    }];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self getBooksWithLocation:[[LocationManager sharedClient] location] query:[self getSearchString]];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -18,13 +18,13 @@
     dispatch_once(&onceToken, ^{
         sharedManager = [[LocationManager alloc] init];
         sharedManager.distanceFilter = kCLDistanceFilterNone;
-        sharedManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        sharedManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         
         // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
         if ([sharedManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
             [sharedManager requestWhenInUseAuthorization];
         }
-        [sharedManager startMonitoringSignificantLocationChanges];
+        
     });
     
     return sharedManager;
