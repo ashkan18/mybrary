@@ -113,7 +113,7 @@
 {
     NSString *path = @"api/book_instances";
     NSDictionary *params = @{@"isbn":isbn,
-                             @"give_type":giveType,
+                             @"offer_type":giveType,
                              @"location": @{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
                                                           @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}};
     

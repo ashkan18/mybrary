@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qme-sd-ocb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qme-sd-ocb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -98,7 +99,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27e-IY-UJ9">
-                                <rect key="frame" x="136" y="332" width="49" height="30"/>
+                                <rect key="frame" x="137" y="332" width="48" height="30"/>
                                 <state key="normal" title="Signup">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -154,7 +155,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tIT-ZV-LyF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Daf-iO-avm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2y-fu-7Qw">
@@ -190,7 +191,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oEU-A2-det"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3vP-Cy-KgU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfO-cl-LJA" userLabel="Name">
@@ -199,10 +200,10 @@
                                     <constraint firstAttribute="height" constant="27" id="GrJ-oY-53b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdo-aS-pLr">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdo-aS-pLr">
                                 <rect key="frame" x="0.0" y="177" width="320" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm1-oT-ldM">
@@ -241,33 +242,43 @@
                         <viewControllerLayoutGuide type="bottom" id="PVS-nw-ptE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oWI-tF-kOE">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGi-TM-O2W">
-                                <rect key="frame" x="16" y="155" width="288" height="40"/>
+                                <rect key="frame" x="16" y="72" width="288" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="EmV-RU-ZIR"/>
+                                </constraints>
                                 <string key="text">:( We were not able to find your book.
 please enter book name 
 and we make sure we remember it for you :) </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tj7-Cm-4Qf">
-                                <rect key="frame" x="16" y="214" width="288" height="30"/>
+                                <rect key="frame" x="16" y="153" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-v6-G5i">
+                                <rect key="frame" x="16" y="191" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="leading" secondItem="oWI-tF-kOE" secondAttribute="leadingMargin" id="CpY-Nh-FpV"/>
-                            <constraint firstItem="iGi-TM-O2W" firstAttribute="trailing" secondItem="oWI-tF-kOE" secondAttribute="trailingMargin" id="SOP-zv-bzX"/>
-                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="trailing" secondItem="oWI-tF-kOE" secondAttribute="trailingMargin" id="W1n-Hr-Gh4"/>
-                            <constraint firstItem="iGi-TM-O2W" firstAttribute="leading" secondItem="oWI-tF-kOE" secondAttribute="leadingMargin" id="fEt-lt-H9f"/>
-                            <constraint firstItem="iGi-TM-O2W" firstAttribute="top" secondItem="Ww8-DW-Nxg" secondAttribute="bottom" constant="91" id="iyp-FR-OHC"/>
-                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="top" secondItem="iGi-TM-O2W" secondAttribute="bottom" constant="19" id="n6e-OB-YcA"/>
-                            <constraint firstItem="iGi-TM-O2W" firstAttribute="leading" secondItem="Tj7-Cm-4Qf" secondAttribute="trailing" constant="-288" id="wNr-JU-Gxh"/>
+                            <constraint firstItem="vFc-v6-G5i" firstAttribute="leading" secondItem="Tj7-Cm-4Qf" secondAttribute="leading" id="1wQ-S3-FAr"/>
+                            <constraint firstAttribute="trailing" secondItem="Tj7-Cm-4Qf" secondAttribute="trailing" constant="16" id="4f2-QY-r3H"/>
+                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="leading" secondItem="oWI-tF-kOE" secondAttribute="leading" constant="16" id="GTx-o9-5Pg"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="top" secondItem="Ww8-DW-Nxg" secondAttribute="bottom" constant="8" id="Ncw-Ux-0MO"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="leading" secondItem="oWI-tF-kOE" secondAttribute="leadingMargin" id="dAB-WI-8rZ"/>
+                            <constraint firstItem="iGi-TM-O2W" firstAttribute="trailing" secondItem="oWI-tF-kOE" secondAttribute="trailingMargin" id="fkV-Jm-JO8"/>
+                            <constraint firstItem="vFc-v6-G5i" firstAttribute="top" secondItem="Tj7-Cm-4Qf" secondAttribute="bottom" constant="8" id="hCC-QS-LcR"/>
+                            <constraint firstItem="vFc-v6-G5i" firstAttribute="width" secondItem="Tj7-Cm-4Qf" secondAttribute="width" id="hfX-1U-KTV"/>
+                            <constraint firstItem="Tj7-Cm-4Qf" firstAttribute="top" secondItem="iGi-TM-O2W" secondAttribute="bottom" id="j34-Xm-Aqn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QkV-z5-X33">
@@ -318,13 +329,13 @@ and we make sure we remember it for you :) </string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-5Z-CJd">
-                                <rect key="frame" x="16" y="273" width="144" height="16"/>
+                                <rect key="frame" x="16" y="273" width="142" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ6-3L-Lyb">
-                                <rect key="frame" x="168" y="268" width="45" height="27"/>
+                                <rect key="frame" x="166" y="268" width="45" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -384,12 +395,7 @@ and we make sure we remember it for you :) </string>
         <image name="dots" width="45" height="44"/>
         <image name="search" width="87" height="80"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="NUW-kR-QHN"/>
+        <segue reference="lDr-Uj-mUk"/>
     </inferredMetricsTieBreakers>
 </document>
