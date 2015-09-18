@@ -39,7 +39,7 @@
     [super viewWillAppear:animated];
     
     [[MBApiClient sharedClient] getMyRequestsWithScucessBlock:^(id responseObject) {
-        self.bookRequests = responseObject;
+        self.bookRequests = responseObject[@"requests"];
         [self.tableView reloadData];
     } errorBlock:^(NSError *error) {
         NSLog(@"There was an error in getting requests");
@@ -58,12 +58,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BookRequestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookRequest" forIndexPath:indexPath];
+    BookRequestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookRequestCell" forIndexPath:indexPath];
     
     NSDictionary *bookRequest = [self.bookRequests objectAtIndex:indexPath.row];
     
-    cell.bookNameLabel = bookRequest[@"book"][@"name"];
-    cell.userLabel = bookRequest[@"user"][@"name"];
+    cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
+    cell.userLabel.text = bookRequest[@"user"][@"name"];
     cell.bookRequestId = bookRequest[@"id"];
     
     return cell;

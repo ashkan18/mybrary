@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--My Requests Table View Controller-->
+        <!--My Requests-->
         <scene sceneID="Pui-o1-Rsh">
             <objects>
                 <tableViewController id="zTO-EV-G5j" customClass="MyRequestsTableViewController" sceneMemberID="viewController">
@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="F0g-4V-5u5" customClass="BookRequestTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookRequestCell" rowHeight="99" id="F0g-4V-5u5" customClass="BookRequestTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="320" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F0g-4V-5u5" id="qYP-kg-Dea">
@@ -23,7 +23,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BookName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REh-uX-pMc">
-                                            <rect key="frame" x="8" y="8" width="84" height="21"/>
+                                            <rect key="frame" x="8" y="0.0" width="299" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                             <outlet property="delegate" destination="zTO-EV-G5j" id="GyL-2f-mDh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ew5-FI-Zg1"/>
+                    <navigationItem key="navigationItem" title="My Requests" id="ew5-FI-Zg1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHZ-Pz-0nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
