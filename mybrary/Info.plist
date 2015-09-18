@@ -69,5 +69,10 @@
 	</array>
 	<key>privacy - location usage description</key>
 	<string>need location</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+    	<key>NSAllowsArbitraryLoads</key>
+	    <true/>
+	</dict>
 </dict>
 </plist>

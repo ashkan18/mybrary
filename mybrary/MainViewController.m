@@ -14,6 +14,7 @@
 #import "LocationManager.h"
 #import "MRProgress.h"
 #import "INTULocationManager.h"
+#import "BookRequestViewController.h"
 
 
 @interface MainViewController()
@@ -30,6 +31,7 @@
     [super viewDidLoad];
     self.title = @"MyBrary";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonPressed:)];
+    self.mapView.delegate = self;
 
 }
 
@@ -63,7 +65,17 @@
 }
 
 - (IBAction)moreButtonPressed:(id)sender {
+    UIAlertController *optionsController = [UIAlertController alertControllerWithTitle:@"Options" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *myRequests = [UIAlertAction actionWithTitle:@"My Requests" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self performSegueWithIdentifier:@"myRequests" sender:self];
+    }];
     
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [optionsController addAction:myRequests];
+    [optionsController addAction:cancel];
+    
+    [self presentViewController:optionsController animated:YES completion:nil];
 }
 
 - (IBAction)searchButtonPressed:(id)sender {
@@ -108,6 +120,7 @@
     [self mapSetRegion:location];
     [[MBApiClient sharedClient]getBooksByLocation:location
                                             query:queryString
+                                      includeMine:[NSNumber numberWithBool:NO]
                                              successBlock:^(id responseObject) {
                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  NSLog(@"received response %@", responseObject);
@@ -128,12 +141,38 @@
             MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];
             ann.title = bookDict[@"name"];
             ann.subtitle = bookDict[@"isbn"];
+            ann.bookInstanceId = bookInstanceDict[@"id"];
+            
             CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[bookInstanceDict[@"lat"] doubleValue], [bookInstanceDict[@"lon"] doubleValue]};
             ann.coordinate = coord;
+            
             [self.mapView addAnnotation:ann];
+            
         }
     }
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MBMapAnnotation class]]) {
+        MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        annotationView.canShowCallout = YES;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        return annotationView;
+    }
+    return nil;
+}
+
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if ([view.annotation isKindOfClass:[MBMapAnnotation class]]) {
+        NSNumber *bookInstanceId = ((MBMapAnnotation *)view.annotation).bookInstanceId;
+        [self performSegueWithIdentifier:@"bookRequest" sender:bookInstanceId];
+    }
+}
+
 
 - (void)postButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"showScanner" sender:self];
@@ -143,6 +182,9 @@
 {
     if ([segue.identifier isEqualToString:@"showScanner"] && [segue.destinationViewController isKindOfClass:[PostViewController class]]) {
         NSLog(@"Goto scanner");
+    } else if ([segue.identifier isEqualToString:@"bookRequest"]) {
+        BookRequestViewController *brvc = segue.destinationViewController;
+        brvc.bookInstanceId = sender;
     }
 }
 

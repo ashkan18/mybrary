@@ -29,12 +29,17 @@
 
 - (void)getBooksByLocation:(CLLocation *)location
                      query:(NSString *)query
+               includeMine:(NSNumber *)includeMine
               successBlock:(void(^)(id responseObject))successBlock
                 errorBlock:(void(^)(NSError *error))errorBlock;
 
 - (void)getBookByIsbn:(NSString *)isbn
          successBlock:(void(^)(id responseObject))successBlock
            errorBlock:(void(^)(NSError *error))errorBlock;
+
+- (void)getBookInstanceById:(NSNumber *)bookInstanceId
+               successBlock:(void(^)(id responseObject))successBlock
+                 errorBlock:(void(^)(NSError *error))errorBlock;
 
 - (void)createBookWithIsbn:(NSString *)isbn
                       name:(NSString *)name
@@ -47,6 +52,14 @@
                           location:(CLLocation *)location
                       successBlock:(void(^)(id responseObject))successBlock
                         errorBlock:(void(^)(NSError *error))errorBlock;
+
+- (void)createBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId
+                                       type:(NSNumber *)transactionType
+                               successBlock:(void(^)(id responseObject))successBlock
+                                 errorBlock:(void(^)(NSError *error))errorBlock;
+
+- (void)getMyRequestsWithScucessBlock:(void(^)(id responseObject))successBlock
+                           errorBlock:(void(^)(NSError *error))errorBlock;
 
 
 

@@ -23,6 +23,9 @@
 		41355EB91B8BA0A60086BFD6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41355EB81B8BA0A60086BFD6 /* Images.xcassets */; };
 		41355EBC1B8BA0A60086BFD6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41355EBA1B8BA0A60086BFD6 /* LaunchScreen.xib */; };
 		41355EC81B8BA0A60086BFD6 /* mybraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EC71B8BA0A60086BFD6 /* mybraryTests.m */; };
+		415AC3D31BAC82DA00023FFD /* BookRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		415AC3D61BACA6CE00023FFD /* MyRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D51BACA6CE00023FFD /* MyRequestsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28A1B95295E00AA196D /* LoginViewController.m */; };
 		41F6C28E1B95DBB900AA196D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28D1B95DBB900AA196D /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,12 @@
 		41355EC11B8BA0A60086BFD6 /* mybraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mybraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41355EC61B8BA0A60086BFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41355EC71B8BA0A60086BFD6 /* mybraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mybraryTests.m; sourceTree = "<group>"; };
+		415AC3D11BAC82DA00023FFD /* BookRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookRequestViewController.h; sourceTree = "<group>"; };
+		415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookRequestViewController.m; sourceTree = "<group>"; };
+		415AC3D41BACA6CE00023FFD /* MyRequestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRequestsTableViewController.h; sourceTree = "<group>"; };
+		415AC3D51BACA6CE00023FFD /* MyRequestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRequestsTableViewController.m; sourceTree = "<group>"; };
+		415AC3D71BACA85900023FFD /* BookRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookRequestTableViewCell.h; sourceTree = "<group>"; };
+		415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookRequestTableViewCell.m; sourceTree = "<group>"; };
 		41F6C2891B95295E00AA196D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		41F6C28A1B95295E00AA196D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		41F6C28C1B95DBB900AA196D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -119,6 +128,8 @@
 			children = (
 				41230F321B8BE656005BAC68 /* MBMapAnnotation.h */,
 				41230F331B8BE656005BAC68 /* MBMapAnnotation.m */,
+				415AC3D71BACA85900023FFD /* BookRequestTableViewCell.h */,
+				415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -138,6 +149,10 @@
 				41F6C28A1B95295E00AA196D /* LoginViewController.m */,
 				41F6C28C1B95DBB900AA196D /* SignUpViewController.h */,
 				41F6C28D1B95DBB900AA196D /* SignUpViewController.m */,
+				415AC3D11BAC82DA00023FFD /* BookRequestViewController.h */,
+				415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */,
+				415AC3D41BACA6CE00023FFD /* MyRequestsTableViewController.h */,
+				415AC3D51BACA6CE00023FFD /* MyRequestsTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -365,7 +380,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				41230F3F1B8D10E5005BAC68 /* LocationManager.m in Sources */,
+				415AC3D31BAC82DA00023FFD /* BookRequestViewController.m in Sources */,
+				415AC3D61BACA6CE00023FFD /* MyRequestsTableViewController.m in Sources */,
 				41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */,
+				415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */,
 				41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */,
 				41230F371B8CE5B1005BAC68 /* PostViewController.m in Sources */,
 				41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */,

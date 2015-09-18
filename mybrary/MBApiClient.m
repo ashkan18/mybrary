@@ -16,7 +16,9 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
+        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://localhost:3000/"]];
+        
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
     
@@ -60,15 +62,16 @@
     [self GET:path
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
-       successBlock(responseObject);
-       
-   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-       errorBlock(error);
-   }];
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
 }
 
 - (void)getBooksByLocation:(CLLocation *)location
                      query:(NSString *)query
+               includeMine:(NSNumber *)includeMine
               successBlock:(void(^)(id responseObject))successBlock
                 errorBlock:(void(^)(NSError *error))errorBlock
 {
@@ -78,15 +81,33 @@
         params[@"query"] = query;
     }
     
+    if (includeMine) {
+        params[@"include_mine"] = includeMine;
+    }
+    
     NSString *path = @"api/books";
     [self GET:path
    parameters:params
       success:^(NSURLSessionDataTask *task, id responseObject) {
-       successBlock(responseObject);
-       
-   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-       errorBlock(error);
-   }];
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
+    
+}
+
+- (void)getBookInstanceById:(NSNumber *)bookInstanceId successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = [NSString stringWithFormat:@"api/book_instances/%@", bookInstanceId];
+    [self GET:path
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
 
 }
 
@@ -115,7 +136,7 @@
     NSDictionary *params = @{@"isbn":isbn,
                              @"offer_type":giveType,
                              @"location": @{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
-                                                          @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}};
+                                            @"lon": [NSNumber numberWithDouble:location.coordinate.longitude]}};
     
     [self POST:path
     parameters:params
@@ -124,7 +145,42 @@
        } failure:^(NSURLSessionDataTask *task, NSError *error) {
            errorBlock(error);
        }];
-
+    
 }
+
+
+- (void)createBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId
+                                       type:(NSNumber *)requestType
+                               successBlock:(void(^)(id responseObject))successBlock
+                                 errorBlock:(void(^)(NSError *error))errorBlock
+{
+    NSString *path = @"api/book_requests";
+    NSDictionary *params = @{@"book_instance_id":bookInstanceId,
+                             @"req_type":requestType};
+    
+    [self POST:path
+    parameters:params
+       success:^(NSURLSessionDataTask *task, id responseObject)  {
+           successBlock(responseObject);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           errorBlock(error);
+       }];
+}
+
+
+- (void)getMyRequestsWithScucessBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/users/me/requests";
+    [self GET:path
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
+    
+}
+
 
 @end

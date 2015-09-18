@@ -6,6 +6,67 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--My Requests Table View Controller-->
+        <scene sceneID="Pui-o1-Rsh">
+            <objects>
+                <tableViewController id="zTO-EV-G5j" customClass="MyRequestsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="iLC-6J-Mdq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="F0g-4V-5u5" customClass="BookRequestTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="99"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F0g-4V-5u5" id="qYP-kg-Dea">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BookName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REh-uX-pMc">
+                                            <rect key="frame" x="8" y="8" width="84" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sth-ts-eEI">
+                                            <rect key="frame" x="8" y="31" width="111" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-Nm-dIJ">
+                                            <rect key="frame" x="258" y="60" width="49" height="30"/>
+                                            <state key="normal" title="Accept"/>
+                                            <connections>
+                                                <action selector="acceptRequest:" destination="F0g-4V-5u5" eventType="touchUpInside" id="2et-D2-MIb"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEA-OJ-vlB">
+                                            <rect key="frame" x="10" y="60" width="67" height="30"/>
+                                            <state key="normal" title="Reject"/>
+                                            <connections>
+                                                <action selector="rejectRequest:" destination="F0g-4V-5u5" eventType="touchUpInside" id="2hc-JP-4Na"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookNameLabel" destination="REh-uX-pMc" id="1rw-TT-yTN"/>
+                                    <outlet property="userLabel" destination="Sth-ts-eEI" id="m9p-m0-Xsv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zTO-EV-G5j" id="bz3-dR-vAP"/>
+                            <outlet property="delegate" destination="zTO-EV-G5j" id="GyL-2f-mDh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ew5-FI-Zg1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHZ-Pz-0nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688" y="-428"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -70,11 +131,65 @@
                         <outlet property="mapView" destination="o9n-id-RkZ" id="StX-n6-Hmj"/>
                         <outlet property="searchTextField" destination="Aic-1N-g82" id="tX3-vr-bJo"/>
                         <segue destination="UDy-MB-cU7" kind="push" identifier="showScanner" id="ECF-e5-fMD"/>
+                        <segue destination="3eR-Sp-PNc" kind="modal" identifier="bookRequest" id="jxL-dS-jDb"/>
+                        <segue destination="zTO-EV-G5j" kind="push" identifier="myRequests" id="4MQ-tW-2Je"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="341"/>
+            <point key="canvasLocation" x="1180" y="341"/>
+        </scene>
+        <!--BookRequest View Controller-->
+        <scene sceneID="g77-Pl-6tY">
+            <objects>
+                <viewController id="3eR-Sp-PNc" userLabel="BookRequest View Controller" customClass="BookRequestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ere-Au-hql"/>
+                        <viewControllerLayoutGuide type="bottom" id="HZ6-oV-TZs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ltU-hm-fWP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v77-pV-vXL">
+                                <rect key="frame" x="116" y="74" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA4-ry-l9I">
+                                <rect key="frame" x="117" y="123" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeU-74-gkP">
+                                <rect key="frame" x="141" y="179" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Hm-Bq-7y7">
+                                <rect key="frame" x="186" y="471" width="114" height="30"/>
+                                <state key="normal" title="Request"/>
+                                <connections>
+                                    <action selector="requestButtonPressed:" destination="3eR-Sp-PNc" eventType="touchUpInside" id="uQn-3P-gPm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKf-Dw-4mH">
+                                <rect key="frame" x="20" y="471" width="121" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="3eR-Sp-PNc" eventType="touchUpInside" id="ohO-mL-5cu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYb-V1-hrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1226" y="1069"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="5zw-Zz-zQI">
