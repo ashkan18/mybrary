@@ -62,9 +62,9 @@
     
     NSDictionary *bookRequest = [self.bookRequests objectAtIndex:indexPath.row];
     
+    cell.bookRequestId = bookRequest[@"id"];
     cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
     cell.userLabel.text = bookRequest[@"user"][@"name"];
-    cell.bookRequestId = bookRequest[@"id"];
     
     return cell;
 }
