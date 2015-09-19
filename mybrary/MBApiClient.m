@@ -182,5 +182,20 @@
     
 }
 
+- (void)updateBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId type:(NSNumber *)requestType status:(NSNumber *)status successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = [NSString stringWithFormat:@"api/book_requests/%@", bookInstanceId];
+    NSDictionary *params = @{@"status":status};
+    
+    [self PUT:path
+    parameters:params
+       success:^(NSURLSessionDataTask *task, id responseObject)  {
+           successBlock(responseObject);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           errorBlock(error);
+       }];
+
+}
+
 
 @end

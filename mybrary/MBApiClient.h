@@ -62,5 +62,12 @@
                            errorBlock:(void(^)(NSError *error))errorBlock;
 
 
+- (void)updateBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId
+                                       type:(NSNumber *)requestType
+                                     status:(NSNumber *)status
+                               successBlock:(void(^)(id responseObject))successBlock
+                                 errorBlock:(void(^)(NSError *error))errorBlock;
+
+
 
 @end

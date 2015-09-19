@@ -7,6 +7,7 @@
 //
 
 #import "BookRequestTableViewCell.h"
+#import "MBApiClient.h"
 
 @implementation BookRequestTableViewCell
 
@@ -20,8 +21,25 @@
     // Configure the view for the selected state
 }
 - (IBAction)rejectRequest:(id)sender {
+    [[MBApiClient sharedClient] updateBookRequestWithBookInstanceId:self.bookRequestId
+                                                               type:nil
+                                                             status:@-1
+                                                       successBlock:^(id responseObject) {
+                                                           self.backgroundColor = [UIColor grayColor];
+                                                       } errorBlock:^(NSError *error) {
+                                                           NSLog(@"Error!!");
+                                                       }];
 }
 - (IBAction)acceptRequest:(id)sender {
+    [[MBApiClient sharedClient] updateBookRequestWithBookInstanceId:self.bookRequestId
+                                                               type:nil
+                                                             status:@1
+                                                       successBlock:^(id responseObject) {
+                                                           self.backgroundColor = [UIColor greenColor];
+                                                       } errorBlock:^(NSError *error) {
+                                                           NSLog(@"Error!!");
+                                                       }];
+
 }
 
 @end
