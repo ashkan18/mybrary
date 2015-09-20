@@ -41,8 +41,6 @@
 		<string>MKDirectionsModePedestrian</string>
 		<string>MKDirectionsModeSubway</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>need location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Send location to Uook server</string>
 	<key>UILaunchStoryboardName</key>
@@ -71,8 +69,8 @@
 	<string>need location</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-    	<key>NSAllowsArbitraryLoads</key>
-	    <true/>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

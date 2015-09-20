@@ -17,7 +17,7 @@
     
     dispatch_once(&onceToken, ^{
         //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://localhost:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.2:3000/"]];
         
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
@@ -181,6 +181,22 @@
       }];
     
 }
+
+
+- (void)getMyInqueriesWithScucessBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/users/me/inquiries";
+    [self GET:path
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
+    
+}
+
 
 - (void)updateBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId type:(NSNumber *)requestType status:(NSNumber *)status successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
 {

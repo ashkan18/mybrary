@@ -13,6 +13,10 @@
 
 @interface NewBookInstanceViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *bookNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *offerTypeButton;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UITextField *priceAmountText;
+
 
 @property (weak, nonatomic) IBOutlet UIPickerView *giveOptions;
 @property (strong, atomic) NSArray *givePossibleOptions;
@@ -27,6 +31,7 @@
     // Do any additional setup after loading the view.
     self.giveOptions.delegate = self;
     self.giveOptions.dataSource = self;
+    
     self.bookNameLabel.text = self.bookName;
     self.givePossibleOptions = @[@"Free", @"Rent", @"Sell"];
     self.selectedOption = @1;
@@ -36,6 +41,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)offerTypePressed:(id)sender {
+    [self.priceAmountText resignFirstResponder];
+    self.giveOptions.hidden = false;
+    [self.giveOptions becomeFirstResponder];
+}
+
 - (IBAction)submtBookInstance:(id)sender {
     
     CLLocation *location = [[LocationManager sharedClient] location];
@@ -74,6 +86,16 @@
     // This method is triggered whenever the user makes a change to the picker selection.
     // The parameter named row and component represents what was selected.
     self.selectedOption = [NSNumber numberWithInteger:row + 1];
+    self.offerTypeButton.titleLabel.text = self.givePossibleOptions[row];
+    if (row == 2) {
+        // it's sell
+        self.priceLabel.hidden = NO;
+        self.priceAmountText.hidden = NO;
+    } else {
+        self.priceLabel.hidden = YES;
+        self.priceAmountText.hidden = YES;
+    }
+    self.giveOptions.hidden = YES;
 }
 
 /*

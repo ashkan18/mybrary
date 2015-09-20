@@ -38,7 +38,7 @@
 {
     [super viewWillAppear:animated];
     
-    [[MBApiClient sharedClient] getMyRequestsWithScucessBlock:^(id responseObject) {
+    [[MBApiClient sharedClient] getMyInqueriesWithScucessBlock:^(id responseObject) {
         self.bookRequests = responseObject[@"requests"];
         [self.tableView reloadData];
     } errorBlock:^(NSError *error) {

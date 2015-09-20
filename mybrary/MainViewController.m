@@ -47,15 +47,21 @@
 }
 
 - (void)setupLocationManager {
-    [[INTULocationManager sharedInstance] subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-        if (status == INTULocationStatusSuccess) {
-            [self getBooksWithLocation:currentLocation query:[self getSearchString]];
-            
-        }
-        else {
-            // An error occurred, more info is available by looking at the specific status returned. The subscription has been automatically canceled.
-        }
-    }];
+    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock
+                                                                     timeout:10
+                                                        delayUntilAuthorized:YES
+                                                                       block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                                                           [self getBooksWithLocation:currentLocation query:[self getSearchString]];
+                                                                       }];
+//    [[INTULocationManager sharedInstance] subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+//        if (status == INTULocationStatusSuccess) {
+//            [self getBooksWithLocation:currentLocation query:[self getSearchString]];
+//            
+//        }
+//        else {
+//            // An error occurred, more info is available by looking at the specific status returned. The subscription has been automatically canceled.
+//        }
+//    }];
 }
 
 
