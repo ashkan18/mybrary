@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface BookRequestTableViewCell : UITableViewCell
+@interface BookRequestTableViewCell : SWTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *bookNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, atomic) NSNumber *bookRequestId;

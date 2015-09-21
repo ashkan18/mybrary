@@ -76,60 +76,38 @@
         <scene sceneID="Pui-o1-Rsh">
             <objects>
                 <tableViewController id="zTO-EV-G5j" customClass="MyInqueriesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="iLC-6J-Mdq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="iLC-6J-Mdq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myInqueryCell" rowHeight="99" id="F0g-4V-5u5" customClass="BookRequestTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="320" height="99"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myInqueryCell" rowHeight="87" id="F0g-4V-5u5" customClass="BookRequestTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F0g-4V-5u5" id="qYP-kg-Dea">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REh-uX-pMc">
-                                            <rect key="frame" x="8" y="0.0" width="299" height="22"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sth-ts-eEI">
-                                            <rect key="frame" x="8" y="31" width="299" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="8" y="48" width="299" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-Nm-dIJ">
-                                            <rect key="frame" x="258" y="60" width="49" height="30"/>
-                                            <state key="normal" title="Accept">
-                                                <color key="titleColor" red="0.4265832679128011" green="0.71145044191919193" blue="0.10259937556629858" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="acceptRequest:" destination="F0g-4V-5u5" eventType="touchUpInside" id="2et-D2-MIb"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEA-OJ-vlB">
-                                            <rect key="frame" x="10" y="60" width="43" height="30"/>
-                                            <state key="normal" title="Reject">
-                                                <color key="titleColor" red="0.79746685606060608" green="0.30859887020897253" blue="0.088888614251318804" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="rejectRequest:" destination="F0g-4V-5u5" eventType="touchUpInside" id="2hc-JP-4Na"/>
-                                            </connections>
-                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REh-uX-pMc">
+                                            <rect key="frame" x="8" y="15" width="299" height="24"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="Sth-ts-eEI" secondAttribute="trailing" constant="5" id="79e-dP-I0T"/>
-                                        <constraint firstItem="mEA-OJ-vlB" firstAttribute="centerY" secondItem="g5X-Nm-dIJ" secondAttribute="centerY" id="7Ws-gs-2dd"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="Sth-ts-eEI" secondAttribute="leading" id="9lC-0q-1PL"/>
-                                        <constraint firstItem="REh-uX-pMc" firstAttribute="top" secondItem="qYP-kg-Dea" secondAttribute="topMargin" constant="-8" id="MKe-2l-ihP"/>
+                                        <constraint firstItem="REh-uX-pMc" firstAttribute="top" secondItem="qYP-kg-Dea" secondAttribute="topMargin" constant="7" id="MKe-2l-ihP"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="REh-uX-pMc" secondAttribute="leading" id="Ml3-Xe-hcs"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="REh-uX-pMc" secondAttribute="trailing" constant="5" id="dni-54-8MY"/>
-                                        <constraint firstItem="mEA-OJ-vlB" firstAttribute="leading" secondItem="qYP-kg-Dea" secondAttribute="leadingMargin" constant="2" id="qTz-TJ-KzR"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="g5X-Nm-dIJ" secondAttribute="bottom" id="x8d-is-E0H"/>
                                         <constraint firstItem="Sth-ts-eEI" firstAttribute="top" secondItem="REh-uX-pMc" secondAttribute="bottom" constant="9" id="xx6-x2-mns"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="g5X-Nm-dIJ" secondAttribute="trailing" constant="5" id="zgE-yJ-5Gv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

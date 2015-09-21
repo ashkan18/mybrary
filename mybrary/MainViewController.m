@@ -163,6 +163,12 @@
     }
 }
 
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    
+    
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[MBMapAnnotation class]]) {

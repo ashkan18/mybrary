@@ -76,7 +76,8 @@ PODS:
   - MRProgress/ProgressBaseClass (0.8.2)
   - MRProgress/Stopable (0.8.2):
     - MRProgress/Helper
-  - MTBBarcodeScanner (1.8.1)
+  - MTBBarcodeScanner (1.8.3)
+  - SWTableViewCell (HEAD based on 0.3.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -84,11 +85,13 @@ DEPENDENCIES:
   - MRProgress
   - MRProgress/AFNetworking
   - MTBBarcodeScanner
+  - SWTableViewCell (HEAD)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   INTULocationManager: 754f2800415378b7bb2c07be103449e1f6a2cc70
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
-  MTBBarcodeScanner: 4b68473960d351a4359fafd4c9871790ad61cb5a
+  MTBBarcodeScanner: a7f3711591a0c727483539e43b5c20cdc8ff5abe
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0.beta.4

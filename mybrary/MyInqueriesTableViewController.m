@@ -62,6 +62,10 @@
     
     NSDictionary *bookRequest = [self.bookRequests objectAtIndex:indexPath.row];
     
+    
+    cell.leftUtilityButtons = [self leftButtons];
+    //cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
     cell.bookRequestId = bookRequest[@"id"];
     cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
     cell.userLabel.text = bookRequest[@"user"][@"name"];
@@ -69,6 +73,88 @@
     return cell;
 }
 
+
+- (NSArray *)leftButtons
+{
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"check.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"reject.png"]];
+    
+    return leftUtilityButtons;
+}
+
+
+#pragma mark - SWTableViewDelegate
+
+- (void)swipeableTableViewCell:(BookRequestTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    
+    switch (index) {
+        case 0:
+            // accepted
+            [self acceptBookRequestWithCell:cell];
+            break;
+        case 1:
+            // rejected
+            [self rejectBookRequestWithCell:cell];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)rejectBookRequestWithCell: (BookRequestTableViewCell *)cell
+{
+    UIAlertController *optionsController = [UIAlertController alertControllerWithTitle:@"Confirm?" message:@"Are you sure you want to reject this request?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *rejectAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [[MBApiClient sharedClient] updateBookRequestWithBookInstanceId:cell.bookRequestId
+                                                                   type:nil
+                                                                 status:@-1
+                                                           successBlock:^(id responseObject) {
+                                                               cell.alpha = .5;
+                                                           } errorBlock:^(NSError *error) {
+                                                               NSLog(@"Error!!");
+                                                           }];
+
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [optionsController addAction:rejectAction];
+    [optionsController addAction:cancel];
+    
+    [self presentViewController:optionsController animated:YES completion:nil];
+    
+}
+
+
+- (void)acceptBookRequestWithCell: (BookRequestTableViewCell *)cell
+{
+    UIAlertController *optionsController = [UIAlertController alertControllerWithTitle:@"Confirm?" message:@"Please confirm that you want to accept this request. Once you accept we will contact both side so you can manage the process." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Lets do this!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [[MBApiClient sharedClient] updateBookRequestWithBookInstanceId:cell.bookRequestId
+                                                                   type:nil
+                                                                 status:@1
+                                                           successBlock:^(id responseObject) {
+                                                               cell.alpha = .5;
+                                                           } errorBlock:^(NSError *error) {
+                                                               NSLog(@"Error!!");
+                                                           }];
+        
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [optionsController addAction:acceptAction];
+    [optionsController addAction:cancel];
+    
+    [self presentViewController:optionsController animated:YES completion:nil];
+
+}
 
 /*
 // Override to support conditional editing of the table view.

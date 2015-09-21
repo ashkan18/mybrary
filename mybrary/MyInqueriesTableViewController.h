@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface MyInqueriesTableViewController : UITableViewController
+@interface MyInqueriesTableViewController : UITableViewController<SWTableViewCellDelegate>
 
 @end
