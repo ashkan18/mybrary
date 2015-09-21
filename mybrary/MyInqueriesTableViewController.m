@@ -2,21 +2,22 @@
 //  MyRequestsTableViewController.m
 //  mybrary
 //
-//  Created by Ashkan Nasseri on 9/21/15.
+//  Created by Ashkan Nasseri on 9/18/15.
 //  Copyright © 2015 uook. All rights reserved.
 //
 
-#import "MyRequestsTableViewController.h"
-#import "MyRequestsTableViewCell.h"
+#import "MyInqueriesTableViewController.h"
 #import "MBApiClient.h"
+#import "BookRequestTableViewCell.h"
 
-@interface MyRequestsTableViewController ()
+@interface MyInqueriesTableViewController ()
 
 @property (atomic, weak) NSMutableArray *bookRequests;
 
 @end
 
-@implementation MyRequestsTableViewController
+@implementation MyInqueriesTableViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,14 +38,13 @@
 {
     [super viewWillAppear:animated];
     
-    [[MBApiClient sharedClient] getMyRequestsWithScucessBlock:^(id responseObject) {
+    [[MBApiClient sharedClient] getMyInqueriesWithScucessBlock:^(id responseObject) {
         self.bookRequests = responseObject[@"requests"];
         [self.tableView reloadData];
     } errorBlock:^(NSError *error) {
         NSLog(@"There was an error in getting requests");
     }];
 }
-
 
 #pragma mark - Table view data source
 
@@ -58,14 +58,13 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MyRequestsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myRequestCell" forIndexPath:indexPath];
+    BookRequestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myInqueryCell" forIndexPath:indexPath];
     
     NSDictionary *bookRequest = [self.bookRequests objectAtIndex:indexPath.row];
     
     cell.bookRequestId = bookRequest[@"id"];
     cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
-    cell.userLabel.text = bookRequest[@"book_instance"][@"user"][@"name"];
-    cell.statusLabel.text = @"Pending";
+    cell.userLabel.text = bookRequest[@"user"][@"name"];
     
     return cell;
 }

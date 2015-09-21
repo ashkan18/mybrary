@@ -72,12 +72,17 @@
 
 - (IBAction)moreButtonPressed:(id)sender {
     UIAlertController *optionsController = [UIAlertController alertControllerWithTitle:@"Options" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *myInqueries = [UIAlertAction actionWithTitle:@"My Inqueries" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self performSegueWithIdentifier:@"myInqueries" sender:self];
+    }];
+    
     UIAlertAction *myRequests = [UIAlertAction actionWithTitle:@"My Requests" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [self performSegueWithIdentifier:@"myRequests" sender:self];
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
+    [optionsController addAction:myInqueries];
     [optionsController addAction:myRequests];
     [optionsController addAction:cancel];
     
