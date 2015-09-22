@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBTableViewController.h"
 
-@interface MyRequestsTableViewController : UITableViewController
+@interface MyRequestsTableViewController : MBTableViewController
 
 @end

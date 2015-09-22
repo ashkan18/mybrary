@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBViewController.h"
 
-@interface NewBookInstanceViewController : UIViewController
+@interface NewBookInstanceViewController : MBViewController
 
 @property (strong, atomic) NSString *isbn;
 @property (strong, atomic) NSString *bookName;

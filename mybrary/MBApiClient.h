@@ -23,6 +23,7 @@
 - (void)registerUserWithName:(NSString *)name
                     userName:(NSString *)userName
                     password:(NSString *)password
+                 accountType:(NSNumber *)accountType
                 successBlock:(void(^)(id responseObject))successBlock
                   errorBlock:(void(^)(NSError *error))errorBlock;
 
@@ -70,6 +71,9 @@
                                      status:(NSNumber *)status
                                successBlock:(void(^)(id responseObject))successBlock
                                  errorBlock:(void(^)(NSError *error))errorBlock;
+
+- (void)getGenreswithSuccessBlock:(void(^)(id responseObject))successBlock
+                       errorBlock:(void(^)(NSError *error))errorBlock;
 
 
 

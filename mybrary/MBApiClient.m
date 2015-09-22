@@ -17,7 +17,7 @@
     
     dispatch_once(&onceToken, ^{
         //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.2:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.5:3000/"]];
         
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
@@ -38,7 +38,12 @@
        }];
 }
 
-- (void)registerUserWithName:(NSString *)name userName:(NSString *)userName password:(NSString *)password successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+- (void)registerUserWithName:(NSString *)name
+                    userName:(NSString *)userName
+                    password:(NSString *)password
+                 accountType:(NSNumber *)accountType
+                successBlock:(void (^)(id))successBlock
+                  errorBlock:(void (^)(NSError *))errorBlock
 {
     NSString *path = @"api/users";
     
@@ -46,7 +51,7 @@
     parameters:@{@"name": name,
                  @"email":userName,
                  @"password":password,
-                 @"type": @1}
+                 @"account_type": accountType}
        success:^(NSURLSessionDataTask *task, id responseObject) {
            successBlock(responseObject);
        } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -213,5 +218,20 @@
 
 }
 
+
+- (void)getGenreswithSuccessBlock:(void (^)(id))successBlock
+                       errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/genres";
+    [self GET:path
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
+
+}
 
 @end

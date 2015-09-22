@@ -11,6 +11,7 @@
 #import "LocationManager.h"
 #import <CoreLocation/CoreLocation.h>
 
+
 @interface NewBookInstanceViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *bookNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *offerTypeButton;

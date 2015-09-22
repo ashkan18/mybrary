@@ -25,6 +25,9 @@
 		41355EC81B8BA0A60086BFD6 /* mybraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EC71B8BA0A60086BFD6 /* mybraryTests.m */; };
 		414A93241BB0456D0025D83E /* MyRequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93231BB0456D0025D83E /* MyRequestsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		414A93271BB04A560025D83E /* MyRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93261BB04A560025D83E /* MyRequestsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		414A932A1BB1996F0025D83E /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93291BB1996F0025D83E /* MBViewController.m */; settings = {ASSET_TAGS = (); }; };
+		414A932D1BB1A6BB0025D83E /* MBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A932C1BB1A6BB0025D83E /* MBTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		414A93311BB1A9EF0025D83E /* UIColor+MBColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93301BB1A9EF0025D83E /* UIColor+MBColors.m */; settings = {ASSET_TAGS = (); }; };
 		415AC3D31BAC82DA00023FFD /* BookRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		415AC3D61BACA6CE00023FFD /* MyInqueriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D51BACA6CE00023FFD /* MyInqueriesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -74,6 +77,12 @@
 		414A93231BB0456D0025D83E /* MyRequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRequestsTableViewCell.m; sourceTree = "<group>"; };
 		414A93251BB04A560025D83E /* MyRequestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRequestsTableViewController.h; sourceTree = "<group>"; };
 		414A93261BB04A560025D83E /* MyRequestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRequestsTableViewController.m; sourceTree = "<group>"; };
+		414A93281BB1996F0025D83E /* MBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
+		414A93291BB1996F0025D83E /* MBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
+		414A932B1BB1A6BB0025D83E /* MBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTableViewController.h; sourceTree = "<group>"; };
+		414A932C1BB1A6BB0025D83E /* MBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTableViewController.m; sourceTree = "<group>"; };
+		414A932F1BB1A9EF0025D83E /* UIColor+MBColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBColors.h"; sourceTree = "<group>"; };
+		414A93301BB1A9EF0025D83E /* UIColor+MBColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBColors.m"; sourceTree = "<group>"; };
 		415AC3D11BAC82DA00023FFD /* BookRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookRequestViewController.h; sourceTree = "<group>"; };
 		415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookRequestViewController.m; sourceTree = "<group>"; };
 		415AC3D41BACA6CE00023FFD /* MyInqueriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInqueriesTableViewController.h; sourceTree = "<group>"; };
@@ -145,6 +154,10 @@
 		41230F381B8D00CF005BAC68 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				414A93281BB1996F0025D83E /* MBViewController.h */,
+				414A93291BB1996F0025D83E /* MBViewController.m */,
+				414A932B1BB1A6BB0025D83E /* MBTableViewController.h */,
+				414A932C1BB1A6BB0025D83E /* MBTableViewController.m */,
 				41355EB21B8BA0A60086BFD6 /* MainViewController.h */,
 				41355EB31B8BA0A60086BFD6 /* MainViewController.m */,
 				41230F351B8CE5B1005BAC68 /* PostViewController.h */,
@@ -199,6 +212,7 @@
 		41355EAA1B8BA0A60086BFD6 /* mybrary */ = {
 			isa = PBXGroup;
 			children = (
+				414A932E1BB1A9C10025D83E /* categories */,
 				41230F3C1B8D10D0005BAC68 /* managers */,
 				41230F381B8D00CF005BAC68 /* controllers */,
 				41230F311B8BE623005BAC68 /* views */,
@@ -237,6 +251,15 @@
 				41355EC61B8BA0A60086BFD6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		414A932E1BB1A9C10025D83E /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				414A932F1BB1A9EF0025D83E /* UIColor+MBColors.h */,
+				414A93301BB1A9EF0025D83E /* UIColor+MBColors.m */,
+			);
+			name = categories;
 			sourceTree = "<group>";
 		};
 		D5AB5D808D5287BA4517779C /* Pods */ = {
@@ -396,12 +419,15 @@
 				41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */,
 				415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */,
 				41230F341B8BE656005BAC68 /* MBMapAnnotation.m in Sources */,
+				414A932A1BB1996F0025D83E /* MBViewController.m in Sources */,
 				41230F371B8CE5B1005BAC68 /* PostViewController.m in Sources */,
 				414A93241BB0456D0025D83E /* MyRequestsTableViewCell.m in Sources */,
+				414A932D1BB1A6BB0025D83E /* MBTableViewController.m in Sources */,
 				41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */,
 				41355EB41B8BA0A60086BFD6 /* MainViewController.m in Sources */,
 				41355EB11B8BA0A60086BFD6 /* AppDelegate.m in Sources */,
 				41230F3B1B8D00FF005BAC68 /* NewBookViewController.m in Sources */,
+				414A93311BB1A9EF0025D83E /* UIColor+MBColors.m in Sources */,
 				41230F421B8D1372005BAC68 /* NewBookInstanceViewController.m in Sources */,
 				41F6C28E1B95DBB900AA196D /* SignUpViewController.m in Sources */,
 				41355EAE1B8BA0A60086BFD6 /* main.m in Sources */,

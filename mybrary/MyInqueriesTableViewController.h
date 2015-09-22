@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SWTableViewCell.h"
+#import "MBTableViewController.h"
 
-@interface MyInqueriesTableViewController : UITableViewController<SWTableViewCellDelegate>
+@interface MyInqueriesTableViewController : MBTableViewController<SWTableViewCellDelegate>
 
 @end
