@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "MBViewController.h"
 
-@interface MainViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate>
+@interface MainViewController : MBViewController<CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 

@@ -10,4 +10,7 @@
 
 @interface MBTableViewController : UITableViewController
 
+- (void)setCellBackgroundWitchCell:(UITableViewCell *)cell
+                         indexPath:(NSIndexPath *)indexPath;
+
 @end

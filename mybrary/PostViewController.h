@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBViewController.h"
 
-@interface PostViewController : UIViewController
+@interface PostViewController : MBViewController
 
 @end

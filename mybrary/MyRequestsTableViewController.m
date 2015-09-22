@@ -67,6 +67,8 @@
     cell.userLabel.text = bookRequest[@"book_instance"][@"user"][@"name"];
     cell.statusLabel.text = @"Pending";
     
+    [self setCellBackgroundWitchCell:cell indexPath:indexPath];
+    
     return cell;
 }
 

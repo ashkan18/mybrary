@@ -31,4 +31,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setCellBackgroundWitchCell:(UITableViewCell *)cell
+                         indexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row / 2) {
+        cell.backgroundColor = [UIColor primaryColor];
+    } else {
+        cell.backgroundColor = [UIColor secondrayColor];
+    }
+}
+
+
 @end
