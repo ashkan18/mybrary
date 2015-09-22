@@ -12,17 +12,17 @@
 
 + (instancetype)primaryColor
 {
-    return [UIColor colorWithRed:0.40 green:0.85 blue:0.44 alpha:1.0];
+    return [UIColor colorWithRed:0.54 green:0.85 blue:0.54 alpha:1.0];
 }
 
 + (instancetype)secondrayColor
 {
-    return [UIColor colorWithRed:0.24 green:0.65 blue:0.50 alpha:1.0];
+    return [UIColor colorWithRed:0.35 green:0.65 blue:0.52 alpha:1.0];
 }
 
 + (instancetype)thirdColor
 {
-    return [UIColor colorWithRed:0.56 green:0.24 blue:0.65 alpha:1.0];
+    return [UIColor colorWithRed:0.87 green:0.77 blue:0.86 alpha:1.0];
 }
 
 @end

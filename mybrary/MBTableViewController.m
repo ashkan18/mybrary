@@ -34,10 +34,10 @@
 - (void)setCellBackgroundWitchCell:(UITableViewCell *)cell
                          indexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row / 2) {
-        cell.backgroundColor = [UIColor primaryColor];
-    } else {
+    if (indexPath.row % 2) {
         cell.backgroundColor = [UIColor secondrayColor];
+    } else {
+        cell.backgroundColor = [UIColor thirdColor];
     }
 }
 
