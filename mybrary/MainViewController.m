@@ -15,6 +15,7 @@
 #import "MRProgress.h"
 #import "INTULocationManager.h"
 #import "BookRequestViewController.h"
+#import "UIColor+MBColors.h"
 
 
 @interface MainViewController()
@@ -169,13 +170,14 @@
     
 }
 
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[MBMapAnnotation class]]) {
-        MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
         annotationView.canShowCallout = YES;
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        
+        annotationView.image = [UIImage imageNamed:@"mapPin.png"];
         return annotationView;
     }
     return nil;
