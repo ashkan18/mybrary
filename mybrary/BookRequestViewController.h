@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBViewController.h"
 
-@interface BookRequestViewController : UIViewController
+@interface BookRequestViewController : MBViewController
 
 @property(atomic, strong) NSNumber *bookInstanceId;
 
