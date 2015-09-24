@@ -10,6 +10,7 @@
 #import "MBApiClient.h"
 #import "LocationManager.h"
 #import <CoreLocation/CoreLocation.h>
+#import "MRProgress.h"
 
 
 @interface NewBookInstanceViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>
@@ -52,13 +53,16 @@
 - (IBAction)submtBookInstance:(id)sender {
     
     CLLocation *location = [[LocationManager sharedClient] location];
+    [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
     [[MBApiClient sharedClient] createBookInstanceWithIsbn:self.isbn
                                                       type:self.selectedOption
                                                      price:nil
                                                   location:location
                                               successBlock:^(id responseObject) {
+                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                   [self.navigationController popToRootViewControllerAnimated:YES];
                                               } errorBlock:^(NSError *error) {
+                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                   NSLog(@"There was an issue in submitting booking instance");
                                               }];
 }

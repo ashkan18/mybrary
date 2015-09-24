@@ -9,6 +9,7 @@
 #import "MyInqueriesTableViewController.h"
 #import "MBApiClient.h"
 #import "BookRequestTableViewCell.h"
+#import "MRProgress.h"
 
 @interface MyInqueriesTableViewController ()
 
@@ -113,12 +114,15 @@
 {
     UIAlertController *optionsController = [UIAlertController alertControllerWithTitle:@"Confirm?" message:@"Are you sure you want to reject this request?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *rejectAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
         [[MBApiClient sharedClient] updateBookRequestWithBookInstanceId:cell.bookRequestId
                                                                    type:nil
                                                                  status:@-1
                                                            successBlock:^(id responseObject) {
+                                                               [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                                cell.alpha = .5;
                                                            } errorBlock:^(NSError *error) {
+                                                               [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                                NSLog(@"Error!!");
                                                            }];
 
@@ -138,12 +142,15 @@
 {
     UIAlertController *optionsController = [UIAlertController alertControllerWithTitle:@"Confirm?" message:@"Please confirm that you want to accept this request. Once you accept we will contact both side so you can manage the process." preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Lets do this!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
         [[MBApiClient sharedClient] updateBookRequestWithBookInstanceId:cell.bookRequestId
                                                                    type:nil
-                                                                 status:@1
+                                                                 status:@2
                                                            successBlock:^(id responseObject) {
+                                                               [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                                cell.alpha = .5;
                                                            } errorBlock:^(NSError *error) {
+                                                               [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                                NSLog(@"Error!!");
                                                            }];
         
