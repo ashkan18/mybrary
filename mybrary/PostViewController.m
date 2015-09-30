@@ -27,9 +27,9 @@
     self.title = @"Scan";
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     
     [MTBBarcodeScanner requestCameraPermissionWithSuccess:^(BOOL success) {
         if (success) {
@@ -40,6 +40,7 @@
             // The user denied access to the camera
         }
     }];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -189,6 +190,7 @@
         NewBookInstanceViewController *nbivc = segue.destinationViewController;
         nbivc.isbn = sender[@"isbn"];
         nbivc.bookName = sender[@"name"];
+        nbivc.bookCoverImageUrl = sender[@"small_cover_url"];
     }
 }
 

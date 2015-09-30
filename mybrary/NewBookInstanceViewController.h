@@ -13,5 +13,6 @@
 
 @property (strong, atomic) NSString *isbn;
 @property (strong, atomic) NSString *bookName;
+@property (strong, atomic) NSString *bookCoverImageUrl;
 
 @end

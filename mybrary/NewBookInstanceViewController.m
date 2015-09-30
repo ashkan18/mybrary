@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *offerTypeButton;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *priceAmountText;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImage;
 
 
 @property (weak, nonatomic) IBOutlet UIPickerView *giveOptions;
@@ -35,6 +36,10 @@
     self.giveOptions.dataSource = self;
     
     self.bookNameLabel.text = self.bookName;
+    
+    NSURL *url = [NSURL URLWithString:self.bookCoverImageUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    self.coverImage.image = [UIImage imageWithData:data];
     self.givePossibleOptions = @[@"Free", @"Rent", @"Sell"];
     self.selectedOption = @1;
 }
