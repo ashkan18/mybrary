@@ -65,6 +65,9 @@
 - (void)getMyInqueriesWithScucessBlock:(void (^)(id))successBlock
                             errorBlock:(void (^)(NSError *))errorBlock;
 
+- (void)getMyBookInstancesWithScucessBlock:(void (^)(id))successBlock
+                                errorBlock:(void (^)(NSError *))errorBlock;
+
 
 - (void)updateBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId
                                        type:(NSNumber *)requestType

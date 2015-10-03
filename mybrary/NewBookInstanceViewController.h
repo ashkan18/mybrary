@@ -12,7 +12,6 @@
 @interface NewBookInstanceViewController : MBViewController
 
 @property (strong, atomic) NSString *isbn;
-@property (strong, atomic) NSString *bookName;
-@property (strong, atomic) NSString *bookCoverImageUrl;
+@property (strong, atomic) NSDictionary *bookData;
 
 @end

@@ -81,10 +81,15 @@
         [self performSegueWithIdentifier:@"myRequests" sender:self];
     }];
     
+    UIAlertAction *myBooks = [UIAlertAction actionWithTitle:@"My Books" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self performSegueWithIdentifier:@"myBooks" sender:self];
+    }];
+    
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     [optionsController addAction:myInqueries];
     [optionsController addAction:myRequests];
+    [optionsController addAction:myBooks];
     [optionsController addAction:cancel];
     
     [self presentViewController:optionsController animated:YES completion:nil];
@@ -152,7 +157,7 @@
         for (NSDictionary *bookInstanceDict in bookDict[@"book_instances"]) {
             MBMapAnnotation *ann = [[MBMapAnnotation alloc] init];
             ann.title = bookDict[@"name"];
-            ann.subtitle = bookDict[@"isbn"];
+            ann.subtitle = bookDict[@"author"][@"name"];
             ann.bookInstanceId = bookInstanceDict[@"id"];
             
             CLLocationCoordinate2D coord = (CLLocationCoordinate2D){[bookInstanceDict[@"lat"] doubleValue], [bookInstanceDict[@"lon"] doubleValue]};

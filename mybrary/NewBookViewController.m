@@ -34,7 +34,7 @@
     if ([segue.identifier isEqualToString:@"NewBookInstance"]) {
         NewBookInstanceViewController *nbivc = segue.destinationViewController;
         nbivc.isbn = self.isbn;
-        nbivc.bookName = self.bookNameTextField.text;
+        nbivc.bookData = sender;
     }
     
 }
@@ -46,7 +46,7 @@
                                       successBlock:^(id responseObject) {
                                           // book submitted succesfuly go to next page
                                           NSLog(@"book submitted");
-                                          [self performSegueWithIdentifier:@"NewBookInstance" sender:self];
+                                          [self performSegueWithIdentifier:@"NewBookInstance" sender:responseObject];
                                       }
                                         errorBlock:^(NSError *error) {
                                             // there was an issue in submitting the book

@@ -189,8 +189,7 @@
     else if ([segue.identifier isEqualToString:@"NewBookInstance"] && [segue.destinationViewController isKindOfClass:[NewBookInstanceViewController class]]) {
         NewBookInstanceViewController *nbivc = segue.destinationViewController;
         nbivc.isbn = sender[@"isbn"];
-        nbivc.bookName = sender[@"name"];
-        nbivc.bookCoverImageUrl = sender[@"small_cover_url"];
+        nbivc.bookData = sender;
     }
 }
 

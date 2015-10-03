@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImage;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
 @end
 
@@ -39,6 +41,11 @@
 {
     self.bookNameLabel.text = responseObject[@"book"][@"name"];
     self.userNameLabel.text = responseObject[@"user"][@"name"];
+    self.authorLabel.text = responseObject[@"book"][@"author"][@"name"];
+    NSURL *url = [NSURL URLWithString:responseObject[@"book"][@"small_cover_url"]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    self.coverImage.image = [UIImage imageWithData:data];
+
 }
 
 - (void)didReceiveMemoryWarning {

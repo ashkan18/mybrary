@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *priceAmountText;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImage;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
 
 @property (weak, nonatomic) IBOutlet UIPickerView *giveOptions;
@@ -35,11 +36,14 @@
     self.giveOptions.delegate = self;
     self.giveOptions.dataSource = self;
     
-    self.bookNameLabel.text = self.bookName;
+    self.bookNameLabel.text = self.bookData[@"name"];
     
-    NSURL *url = [NSURL URLWithString:self.bookCoverImageUrl];
+    NSURL *url = [NSURL URLWithString:self.bookData[@"small_cover_url"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.coverImage.image = [UIImage imageWithData:data];
+    
+    self.authorLabel.text = self.bookData[@"author"][@"name"];
+    
     self.givePossibleOptions = @[@"Free", @"Rent", @"Sell"];
     self.selectedOption = @1;
 }

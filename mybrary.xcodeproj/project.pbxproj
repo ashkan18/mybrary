@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DE2FEB3DDC0D865C5E2B4D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5A45E40A2DDEB62D03717 /* libPods.a */; };
+		41129C4B1BC002CE008D6250 /* MyBooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		41129C4E1BC003A1008D6250 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4D1BC003A1008D6250 /* BookTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F2B1B8BA469005BAC68 /* MBApiClient.m */; };
 		41230F2E1B8BA63F005BAC68 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41230F2D1B8BA63F005BAC68 /* MapKit.framework */; };
 		41230F301B8BAB5B005BAC68 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41230F2F1B8BAB5B005BAC68 /* CoreLocation.framework */; };
@@ -46,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41129C491BC002CE008D6250 /* MyBooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBooksTableViewController.h; sourceTree = "<group>"; };
+		41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBooksTableViewController.m; sourceTree = "<group>"; };
+		41129C4C1BC003A1008D6250 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
+		41129C4D1BC003A1008D6250 /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		41230F2A1B8BA469005BAC68 /* MBApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApiClient.h; sourceTree = "<group>"; };
 		41230F2B1B8BA469005BAC68 /* MBApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApiClient.m; sourceTree = "<group>"; };
 		41230F2D1B8BA63F005BAC68 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -147,6 +153,8 @@
 				415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */,
 				414A93221BB0456D0025D83E /* MyRequestsTableViewCell.h */,
 				414A93231BB0456D0025D83E /* MyRequestsTableViewCell.m */,
+				41129C4C1BC003A1008D6250 /* BookTableViewCell.h */,
+				41129C4D1BC003A1008D6250 /* BookTableViewCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -176,6 +184,8 @@
 				415AC3D51BACA6CE00023FFD /* MyInqueriesTableViewController.m */,
 				414A93251BB04A560025D83E /* MyRequestsTableViewController.h */,
 				414A93261BB04A560025D83E /* MyRequestsTableViewController.m */,
+				41129C491BC002CE008D6250 /* MyBooksTableViewController.h */,
+				41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -430,6 +440,8 @@
 				414A93311BB1A9EF0025D83E /* UIColor+MBColors.m in Sources */,
 				41230F421B8D1372005BAC68 /* NewBookInstanceViewController.m in Sources */,
 				41F6C28E1B95DBB900AA196D /* SignUpViewController.m in Sources */,
+				41129C4B1BC002CE008D6250 /* MyBooksTableViewController.m in Sources */,
+				41129C4E1BC003A1008D6250 /* BookTableViewCell.m in Sources */,
 				41355EAE1B8BA0A60086BFD6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

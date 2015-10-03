@@ -16,8 +16,8 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
-        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.5:3000/"]];
+        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.5:3000/"]];
         
         //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
     });
@@ -191,6 +191,20 @@
 - (void)getMyInqueriesWithScucessBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
 {
     NSString *path = @"api/users/me/inquiries";
+    [self GET:path
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          successBlock(responseObject);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          errorBlock(error);
+      }];
+    
+}
+
+- (void)getMyBookInstancesWithScucessBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/users/me/book_instances";
     [self GET:path
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
