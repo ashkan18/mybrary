@@ -162,12 +162,12 @@
 		41230F381B8D00CF005BAC68 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				41355EB21B8BA0A60086BFD6 /* MainViewController.h */,
+				41355EB31B8BA0A60086BFD6 /* MainViewController.m */,
 				414A93281BB1996F0025D83E /* MBViewController.h */,
 				414A93291BB1996F0025D83E /* MBViewController.m */,
 				414A932B1BB1A6BB0025D83E /* MBTableViewController.h */,
 				414A932C1BB1A6BB0025D83E /* MBTableViewController.m */,
-				41355EB21B8BA0A60086BFD6 /* MainViewController.h */,
-				41355EB31B8BA0A60086BFD6 /* MainViewController.m */,
 				41230F351B8CE5B1005BAC68 /* PostViewController.h */,
 				41230F361B8CE5B1005BAC68 /* PostViewController.m */,
 				41230F391B8D00FF005BAC68 /* NewBookViewController.h */,

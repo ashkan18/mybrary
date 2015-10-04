@@ -17,9 +17,9 @@
     
     dispatch_once(&onceToken, ^{
         //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.5:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.3:3000/"]];
         
-        //sharedManager.responseSerializer = [MSJsonResponseSerailizerWithData serializer];
+        sharedManager.responseSerializer = [AFJSONResponseSerializer serializer];
     });
     
     return sharedManager;
@@ -151,6 +151,21 @@
            errorBlock(error);
        }];
     
+}
+
+- (void)deleteBookInstanceWithId:(NSNumber *)bookInstanceId
+                    successBlock:(void (^)(id))successBlock
+                      errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = [NSString stringWithFormat:@"api/book_instances/%@", bookInstanceId];
+    
+    [self DELETE:path
+      parameters:nil
+         success:^(NSURLSessionDataTask *task, id responseObject) {
+             successBlock(responseObject);
+         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+             errorBlock(error);
+         }];
 }
 
 

@@ -54,6 +54,11 @@
                       successBlock:(void(^)(id responseObject))successBlock
                         errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)deleteBookInstanceWithId:(NSNumber *)instanceId
+                    successBlock:(void(^)(id responseObject))successBlock
+                      errorBlock:(void(^)(NSError *error))errorBlock;
+
+
 - (void)createBookRequestWithBookInstanceId:(NSNumber *)bookInstanceId
                                        type:(NSNumber *)transactionType
                                successBlock:(void(^)(id responseObject))successBlock

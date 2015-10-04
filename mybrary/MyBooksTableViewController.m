@@ -34,7 +34,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
@@ -73,6 +73,46 @@
     [self setCellBackgroundWitchCell:cell indexPath:indexPath];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remove the deleted object from your data source.
+        //If your data source is an NSMutableArray, do this
+        [self confirmDeleteRowAtIndexPath:indexPath];
+    }
+}
+
+- (void)confirmDeleteRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIAlertController *confirmationAlert = [UIAlertController alertControllerWithTitle:@"Confirm" message:@"Are you sure you want to delete this book from your offerings?" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Yes, remove!" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        BookTableViewCell *bookCell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [[MBApiClient sharedClient] deleteBookInstanceWithId:bookCell.bookInstanceId
+                                                successBlock:^(id responseObject) {
+                                                    [self.myBooks removeObjectAtIndex:indexPath.row];
+                                                    //[tableView reloadData]; // tell table to refresh now
+                                                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                                                } errorBlock:^(NSError *error) {
+                                                    if ([[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode] == 403) {
+                                                        NSLog(@"There was an error in deleting. existing requests");
+                                                    }
+ 
+                                                    NSLog(@"There was an error in deleting.");
+                                                }];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+    
+    [confirmationAlert addAction:cancel];
+    [confirmationAlert addAction:delete];
+    
+    [self presentViewController:confirmationAlert animated:YES completion:nil];
 }
 
 

@@ -6,3 +6,4 @@ pod 'MRProgress/AFNetworking'
 pod 'MTBBarcodeScanner'
 pod 'INTULocationManager', :head
 pod 'SWTableViewCell', :head
+pod 'FlatUIKit'

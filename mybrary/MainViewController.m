@@ -36,16 +36,12 @@
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self setupLocationManager];
-    [super viewWillAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    
-}
 
 - (void)setupLocationManager {
     [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock
@@ -54,15 +50,6 @@
                                                                        block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
                                                                            [self getBooksWithLocation:currentLocation query:[self getSearchString]];
                                                                        }];
-//    [[INTULocationManager sharedInstance] subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-//        if (status == INTULocationStatusSuccess) {
-//            [self getBooksWithLocation:currentLocation query:[self getSearchString]];
-//            
-//        }
-//        else {
-//            // An error occurred, more info is available by looking at the specific status returned. The subscription has been automatically canceled.
-//        }
-//    }];
 }
 
 
@@ -96,7 +83,7 @@
 }
 
 - (IBAction)searchButtonPressed:(id)sender {
-    [self resignFirstResponder];
+    [self.searchTextField resignFirstResponder];
     [self getBooksWithLocation:[[LocationManager sharedClient] location] query:[self getSearchString]];
     
 }
@@ -105,13 +92,6 @@
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [errorAlert show];
     NSLog(@"Error: %@",error.description);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    CLLocation *crnLoc = [locations lastObject];
-    [self getBooksWithLocation:crnLoc query:[self getSearchString]];
-    
 }
 
 - (NSString *)getSearchString
@@ -135,6 +115,7 @@
 {
     [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];
     [self mapSetRegion:location];
+    
     [[MBApiClient sharedClient]getBooksByLocation:location
                                             query:queryString
                                       includeMine:[NSNumber numberWithBool:NO]
@@ -142,6 +123,7 @@
                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  NSLog(@"received response %@", responseObject);
                                                  [self updateShowAnnotations:responseObject];
+                                                 
                                              } errorBlock:^(NSError *error) {
                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                  NSLog(@"error baba");
