@@ -45,6 +45,21 @@
     NSURL *url = [NSURL URLWithString:responseObject[@"book"][@"small_cover_url"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.coverImage.image = [UIImage imageWithData:data];
+    
+    switch ([responseObject[@"offer_type"] integerValue]) {
+        case 1:
+            self.typeLabel.text = @"Free";
+            break;
+        case 2:
+            self.typeLabel.text = @"Rent";
+            break;
+        case 3:
+            self.typeLabel.text = @"Sell";
+            break;
+        default:
+            self.typeLabel.text = @"";
+            break;
+    }
 
 }
 
