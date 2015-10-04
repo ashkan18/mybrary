@@ -65,8 +65,21 @@
     cell.bookRequestId = bookRequest[@"id"];
     cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
     cell.userLabel.text = bookRequest[@"book_instance"][@"user"][@"name"];
-    cell.statusLabel.text = @"Pending";
     
+    switch ([bookRequest[@"status"] integerValue]) {
+        case 2:
+            cell.statusLabel.text = @"Accepted";
+            break;
+        case -1:
+            cell.statusLabel.text = @"Rejected";
+            break;
+        case 1:
+            cell.statusLabel.text = @"Pending";
+            break;
+        default:
+            cell.statusLabel.text = @"Unknown";
+            break;
+    }
     [self setCellBackgroundWitchCell:cell indexPath:indexPath];
     
     return cell;

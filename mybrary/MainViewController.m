@@ -17,7 +17,6 @@
 #import "BookRequestViewController.h"
 #import "UIColor+MBColors.h"
 
-
 @interface MainViewController()
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -33,7 +32,6 @@
     self.title = @"MyBrary";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonPressed:)];
     self.mapView.delegate = self;
-
 }
 
 - (void)viewDidAppear:(BOOL)animated

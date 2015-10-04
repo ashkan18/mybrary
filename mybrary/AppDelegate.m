@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MBApiClient.h"
+#import <ChameleonFramework/Chameleon.h>
+
 
 
 @interface AppDelegate ()

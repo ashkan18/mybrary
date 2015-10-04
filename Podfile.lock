@@ -20,7 +20,9 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - FlatUIKit (1.6.2)
+  - ChameleonFramework (2.0.3):
+    - ChameleonFramework/Default (= 2.0.3)
+  - ChameleonFramework/Default (2.0.3)
   - INTULocationManager (HEAD based on 4.0.0)
   - MRProgress (0.8.2):
     - MRProgress/ActivityIndicator (= 0.8.2)
@@ -82,7 +84,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - FlatUIKit
+  - ChameleonFramework
   - INTULocationManager (HEAD)
   - MRProgress
   - MRProgress/AFNetworking
@@ -91,7 +93,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
+  ChameleonFramework: 31cf675235772b0fb6f43bf76547eafc2d6442ae
   INTULocationManager: 754f2800415378b7bb2c07be103449e1f6a2cc70
   MRProgress: f4cfe862082418e8f542f077772283f425d6c699
   MTBBarcodeScanner: 0135798eb63d97f1f42baca61b52f8ad18a71212

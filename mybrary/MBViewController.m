@@ -18,7 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor primaryColor];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont    fontWithName:@"Arial" size:20.0],NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    self.navigationController.navigationBar.backgroundColor = [UIColor secondrayColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor secondrayColor];
+    
+    //self.view.backgroundColor = [UIColor primaryColor];
 }
 
 - (void)didReceiveMemoryWarning {

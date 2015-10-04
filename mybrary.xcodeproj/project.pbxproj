@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DE2FEB3DDC0D865C5E2B4D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED5A45E40A2DDEB62D03717 /* libPods.a */; };
 		41129C4B1BC002CE008D6250 /* MyBooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		41129C4E1BC003A1008D6250 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4D1BC003A1008D6250 /* BookTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F2B1B8BA469005BAC68 /* MBApiClient.m */; };
@@ -35,6 +34,7 @@
 		415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28A1B95295E00AA196D /* LoginViewController.m */; };
 		41F6C28E1B95DBB900AA196D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28D1B95DBB900AA196D /* SignUpViewController.m */; };
+		8A0F8216E0D684E4DB45E747 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2887716103803E4236D4E321 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2887716103803E4236D4E321 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41129C491BC002CE008D6250 /* MyBooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBooksTableViewController.h; sourceTree = "<group>"; };
 		41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBooksTableViewController.m; sourceTree = "<group>"; };
 		41129C4C1BC003A1008D6250 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		41F6C28C1B95DBB900AA196D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		41F6C28D1B95DBB900AA196D /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		451421A2B8C07D4ED0A1FD04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		4ED5A45E40A2DDEB62D03717 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDB943840F0CC4A4BC4EF4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +111,7 @@
 			files = (
 				41230F301B8BAB5B005BAC68 /* CoreLocation.framework in Frameworks */,
 				41230F2E1B8BA63F005BAC68 /* MapKit.framework in Frameworks */,
-				0DE2FEB3DDC0D865C5E2B4D4 /* libPods.a in Frameworks */,
+				8A0F8216E0D684E4DB45E747 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +130,7 @@
 			children = (
 				41230F2F1B8BAB5B005BAC68 /* CoreLocation.framework */,
 				41230F2D1B8BA63F005BAC68 /* MapKit.framework */,
-				4ED5A45E40A2DDEB62D03717 /* libPods.a */,
+				2887716103803E4236D4E321 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,6 +293,7 @@
 				41355EA51B8BA0A60086BFD6 /* Frameworks */,
 				41355EA61B8BA0A60086BFD6 /* Resources */,
 				35B63A0B263620BE0D7F1699 /* Copy Pods Resources */,
+				53A67254A2DF11F46A74D49F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -398,6 +399,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53A67254A2DF11F46A74D49F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		543C2EAEBF0AB1F3981239A9 /* Check Pods Manifest.lock */ = {
