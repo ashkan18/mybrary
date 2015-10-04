@@ -16,8 +16,8 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
-        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.3:3000/"]];
+        sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
+        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.3:3000/"]];
         
         sharedManager.responseSerializer = [AFJSONResponseSerializer serializer];
     });
