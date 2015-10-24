@@ -60,7 +60,6 @@
     [self.scanner startScanningWithResultBlock:^(NSArray *codes) {
         [self drawOverlaysOnCodes:codes];
         AVMetadataMachineReadableCodeObject *code = [codes firstObject];
-        NSLog(@"Found code: %@", code.stringValue);
         
         [self.scanner stopScanning];
         [MRProgressOverlayView showOverlayAddedTo:self.view.window animated:YES];

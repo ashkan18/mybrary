@@ -33,7 +33,6 @@
                                        } errorBlock:^(NSError *error) {
                                            [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                            
-                                           NSLog(@"There was an error in getting response");
                                        }];
 }
 
@@ -84,7 +83,6 @@
                                                     } errorBlock:^(NSError *error) {
                                                         [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
                                                         
-                                                        NSLog(@"There was an issue!");
                                                     }];
 }
 

@@ -89,7 +89,6 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [errorAlert show];
-    NSLog(@"Error: %@",error.description);
 }
 
 - (NSString *)getSearchString
@@ -119,12 +118,10 @@
                                       includeMine:[NSNumber numberWithBool:NO]
                                              successBlock:^(id responseObject) {
                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
-                                                 NSLog(@"received response %@", responseObject);
                                                  [self updateShowAnnotations:responseObject];
                                                  
                                              } errorBlock:^(NSError *error) {
                                                  [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
-                                                 NSLog(@"error baba");
                                                  
                                              }];
 }
@@ -185,7 +182,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showScanner"] && [segue.destinationViewController isKindOfClass:[PostViewController class]]) {
-        NSLog(@"Goto scanner");
     } else if ([segue.identifier isEqualToString:@"bookRequest"]) {
         BookRequestViewController *brvc = segue.destinationViewController;
         brvc.bookInstanceId = sender;

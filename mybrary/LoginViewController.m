@@ -43,7 +43,6 @@
                                      } errorBlock:^(NSError *error) {
                                          // show error
                                          [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
-                                         NSLog(@"There was an error in login");
                                      }];
 }
 

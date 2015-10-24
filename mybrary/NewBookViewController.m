@@ -45,7 +45,6 @@
                                               name:self.bookNameTextField.text
                                       successBlock:^(id responseObject) {
                                           // book submitted succesfuly go to next page
-                                          NSLog(@"book submitted");
                                           [self performSegueWithIdentifier:@"NewBookInstance" sender:responseObject];
                                       }
                                         errorBlock:^(NSError *error) {

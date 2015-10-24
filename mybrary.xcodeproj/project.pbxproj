@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41129C4B1BC002CE008D6250 /* MyBooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		41129C4E1BC003A1008D6250 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4D1BC003A1008D6250 /* BookTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		41129C4B1BC002CE008D6250 /* MyBooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4A1BC002CE008D6250 /* MyBooksTableViewController.m */; };
+		41129C4E1BC003A1008D6250 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41129C4D1BC003A1008D6250 /* BookTableViewCell.m */; };
 		41230F2C1B8BA469005BAC68 /* MBApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 41230F2B1B8BA469005BAC68 /* MBApiClient.m */; };
 		41230F2E1B8BA63F005BAC68 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41230F2D1B8BA63F005BAC68 /* MapKit.framework */; };
 		41230F301B8BAB5B005BAC68 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41230F2F1B8BAB5B005BAC68 /* CoreLocation.framework */; };
@@ -24,17 +24,17 @@
 		41355EB91B8BA0A60086BFD6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41355EB81B8BA0A60086BFD6 /* Images.xcassets */; };
 		41355EBC1B8BA0A60086BFD6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41355EBA1B8BA0A60086BFD6 /* LaunchScreen.xib */; };
 		41355EC81B8BA0A60086BFD6 /* mybraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41355EC71B8BA0A60086BFD6 /* mybraryTests.m */; };
-		414A93241BB0456D0025D83E /* MyRequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93231BB0456D0025D83E /* MyRequestsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		414A93271BB04A560025D83E /* MyRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93261BB04A560025D83E /* MyRequestsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		414A932A1BB1996F0025D83E /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93291BB1996F0025D83E /* MBViewController.m */; settings = {ASSET_TAGS = (); }; };
-		414A932D1BB1A6BB0025D83E /* MBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A932C1BB1A6BB0025D83E /* MBTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		414A93311BB1A9EF0025D83E /* UIColor+MBColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93301BB1A9EF0025D83E /* UIColor+MBColors.m */; settings = {ASSET_TAGS = (); }; };
-		415AC3D31BAC82DA00023FFD /* BookRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
-		415AC3D61BACA6CE00023FFD /* MyInqueriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D51BACA6CE00023FFD /* MyInqueriesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		414A93241BB0456D0025D83E /* MyRequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93231BB0456D0025D83E /* MyRequestsTableViewCell.m */; };
+		414A93271BB04A560025D83E /* MyRequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93261BB04A560025D83E /* MyRequestsTableViewController.m */; };
+		414A932A1BB1996F0025D83E /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93291BB1996F0025D83E /* MBViewController.m */; };
+		414A932D1BB1A6BB0025D83E /* MBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A932C1BB1A6BB0025D83E /* MBTableViewController.m */; };
+		414A93311BB1A9EF0025D83E /* UIColor+MBColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A93301BB1A9EF0025D83E /* UIColor+MBColors.m */; };
+		415AC3D31BAC82DA00023FFD /* BookRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D21BAC82DA00023FFD /* BookRequestViewController.m */; };
+		415AC3D61BACA6CE00023FFD /* MyInqueriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D51BACA6CE00023FFD /* MyInqueriesTableViewController.m */; };
+		415AC3D91BACA85900023FFD /* BookRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 415AC3D81BACA85900023FFD /* BookRequestTableViewCell.m */; };
 		41F6C28B1B95295E00AA196D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28A1B95295E00AA196D /* LoginViewController.m */; };
 		41F6C28E1B95DBB900AA196D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F6C28D1B95DBB900AA196D /* SignUpViewController.m */; };
-		8A0F8216E0D684E4DB45E747 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2887716103803E4236D4E321 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8A0F8216E0D684E4DB45E747 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2887716103803E4236D4E321 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -590,7 +590,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = mybrary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -605,7 +605,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = mybrary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
