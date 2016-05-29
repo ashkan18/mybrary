@@ -91,6 +91,7 @@
 {
     UIAlertController *confirmationAlert = [UIAlertController alertControllerWithTitle:@"Confirm" message:@"Are you sure you want to delete this book from your offerings?" preferredStyle:UIAlertControllerStyleActionSheet];
     
+    confirmationAlert.popoverPresentationController.sourceView = self.view;
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Yes, remove!" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         BookTableViewCell *bookCell = [self.tableView cellForRowAtIndexPath:indexPath];
         [[MBApiClient sharedClient] deleteBookInstanceWithId:bookCell.bookInstanceId

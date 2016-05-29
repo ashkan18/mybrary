@@ -10,11 +10,14 @@
 #import "MBApiClient.h"
 #import "MRProgress.h"
 #import "AppDelegate.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface LoginViewController ()
+@interface LoginViewController () <FBSDKLoginButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *facebookLoginBtn;
 
 @end
 
@@ -23,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.facebookLoginBtn.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.facebookLoginBtn.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +69,36 @@
 
 - (IBAction)signupPressed:(id)sender {
     [self performSegueWithIdentifier:@"signUp" sender:self];
+}
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    // after facebook login
+    if(!error){
+        if ([FBSDKAccessToken currentAccessToken]) {
+            NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me?fields=id,name,email,picture"
+                                               parameters:nil
+                                               HTTPMethod:@"GET"]
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 [[MBApiClient sharedClient] loginWithFacebook:result[@"email"] name:result[@"name"] accessToken:accessToken successBlock:^(id responseObject) {
+                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                     [defaults setObject:accessToken forKey:@"AccessToken"];
+                     [defaults synchronize];
+                     
+                     AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+                     appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+                     
+                 } errorBlock:^(NSError *error) {
+                     
+                 }];
+             }];
+        }
+        
+    }
+}
+
+-(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    
 }
 
 #pragma mark - Navigation

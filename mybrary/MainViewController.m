@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (strong, atomic) NSArray *annotaions;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *moreButton;
 
 @end
 
@@ -76,7 +77,8 @@
     [optionsController addAction:myRequests];
     [optionsController addAction:myBooks];
     [optionsController addAction:cancel];
-    
+    optionsController.popoverPresentationController.barButtonItem = self.moreButton;
+
     [self presentViewController:optionsController animated:YES completion:nil];
 }
 

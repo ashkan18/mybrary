@@ -20,6 +20,12 @@
              successBlock:(void(^)(id responseObject))successBlock
                errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)loginWithFacebook:(NSString *)userName
+                     name:(NSString *)name
+              accessToken:(NSString *)accessToken
+             successBlock:(void(^)(id responseObject))successBlock
+               errorBlock:(void(^)(NSError *error))errorBlock;
+
 - (void)registerUserWithName:(NSString *)name
                     userName:(NSString *)userName
                     password:(NSString *)password

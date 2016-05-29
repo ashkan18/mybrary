@@ -17,7 +17,7 @@
     
     dispatch_once(&onceToken, ^{
         sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://mybrary.herokuapp.com/"]];
-        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.3:3000/"]];
+        //sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.5:3000/"]];
         
         sharedManager.responseSerializer = [AFJSONResponseSerializer serializer];
     });
@@ -31,6 +31,19 @@
     
     [self POST:path
     parameters:@{@"email": userName, @"password": password}
+       success:^(NSURLSessionDataTask *task, id responseObject) {
+           successBlock(responseObject);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           errorBlock(error);
+       }];
+}
+
+- (void)loginWithFacebook:(NSString *)userName name:(NSString *)name accessToken:(NSString *)accessToken successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+{
+    NSString *path = @"api/auth/facebook";
+    
+    [self POST:path
+    parameters:@{@"email": userName, @"access_token": accessToken, @"name": name}
        success:^(NSURLSessionDataTask *task, id responseObject) {
            successBlock(responseObject);
        } failure:^(NSURLSessionDataTask *task, NSError *error) {
