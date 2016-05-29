@@ -70,7 +70,6 @@
     cell.bookRequestId = bookRequest[@"id"];
     cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
     cell.userLabel.text = bookRequest[@"user"][@"name"];
-    
     [self setCellBackgroundWitchCell:cell indexPath:indexPath];
     
     return cell;

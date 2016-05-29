@@ -65,6 +65,13 @@
     cell.bookRequestId = bookRequest[@"id"];
     cell.bookNameLabel.text = bookRequest[@"book_instance"][@"book"][@"name"];
     cell.userLabel.text = bookRequest[@"book_instance"][@"user"][@"name"];
+    NSURL *bookImageUrl = [NSURL URLWithString:bookRequest[@"book_instance"][@"book"][@"small_cover_url"]];
+    NSData *bookData = [NSData dataWithContentsOfURL:bookImageUrl];
+    cell.bookImage.image = [UIImage imageWithData:bookData];
+
+    NSURL *url = [NSURL URLWithString:bookRequest[@"book_instance"][@"user"][@"profile_picture_url"]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    cell.userImage.image = [UIImage imageWithData:data];
     
     switch ([bookRequest[@"status"] integerValue]) {
         case 2:

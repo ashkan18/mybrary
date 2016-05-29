@@ -22,7 +22,7 @@
 
 + (instancetype)thirdColor
 {
-    return [UIColor colorWithRed:0.87 green:0.77 blue:0.86 alpha:1.0];
+    return [UIColor colorWithRed:0.68 green:0.71 blue:0.75 alpha:1.0];
 }
 
 @end

@@ -80,7 +80,7 @@
                                                parameters:nil
                                                HTTPMethod:@"GET"]
              startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                 [[MBApiClient sharedClient] loginWithFacebook:result[@"email"] name:result[@"name"] accessToken:accessToken successBlock:^(id responseObject) {
+                 [[MBApiClient sharedClient] loginWithFacebook:result[@"email"] name:result[@"name"] accessToken:accessToken profilePicture: result[@"picture"][@"data"][@"url"] successBlock:^(id responseObject) {
                      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                      [defaults setObject:accessToken forKey:@"AccessToken"];
                      [defaults synchronize];

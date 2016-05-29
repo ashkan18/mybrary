@@ -23,6 +23,7 @@
 - (void)loginWithFacebook:(NSString *)userName
                      name:(NSString *)name
               accessToken:(NSString *)accessToken
+           profilePicture:(NSString *)profilePicture
              successBlock:(void(^)(id responseObject))successBlock
                errorBlock:(void(^)(NSError *error))errorBlock;
 

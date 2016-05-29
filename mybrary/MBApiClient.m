@@ -38,12 +38,12 @@
        }];
 }
 
-- (void)loginWithFacebook:(NSString *)userName name:(NSString *)name accessToken:(NSString *)accessToken successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
+- (void)loginWithFacebook:(NSString *)userName name:(NSString *)name accessToken:(NSString *)accessToken profilePicture:(NSString *)profilePicture successBlock:(void (^)(id))successBlock errorBlock:(void (^)(NSError *))errorBlock
 {
     NSString *path = @"api/auth/facebook";
     
     [self POST:path
-    parameters:@{@"email": userName, @"access_token": accessToken, @"name": name}
+    parameters:@{@"email": userName, @"access_token": accessToken, @"name": name, @"profile_picture_url": profilePicture}
        success:^(NSURLSessionDataTask *task, id responseObject) {
            successBlock(responseObject);
        } failure:^(NSURLSessionDataTask *task, NSError *error) {

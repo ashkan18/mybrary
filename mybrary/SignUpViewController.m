@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "MBApiClient.h"
 #import "MRProgress.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -48,6 +49,7 @@
                                          accountType:self.bookStoreSwitch.on ? @2 : @1
                                         successBlock:^(id responseObject) {
                                             [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
+                                            [self loginWithToken: responseObject[@"api_key"][@"access_token"]];
                                             [self dismissViewControllerAnimated:YES completion:nil];
                                         } errorBlock:^(NSError *error) {
                                             [MRProgressOverlayView dismissOverlayForView:self.view.window animated:YES];
@@ -59,6 +61,15 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+- (void)loginWithToken:(NSString *)token {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:@"AccessToken"];
+    [defaults synchronize];
+    
+    AppDelegate *appDelegateTemp = [[UIApplication sharedApplication]delegate];
+    appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
 }
 /*
 #pragma mark - Navigation
